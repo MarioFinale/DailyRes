@@ -2,6 +2,7 @@
 using MWBot.net.WikiBot;
 using MWBot.net;
 using System.Drawing;
+using DailyRes.Properties;
 
 namespace DailyRes
 {
@@ -39,8 +40,9 @@ namespace DailyRes
                             string tdesc = tx.Item1 + Environment.NewLine + Environment.NewLine;
                             tdesc = tdesc + tx.Item3[0] + Environment.NewLine + "• Enlace a la imagen completa: https://commons.wikimedia.org/wiki/File:" + Utils.UrlWebEncode(tx.Item2.Replace(" ", "_")) + Environment.NewLine + Environment.NewLine + "• Imagen por " + imgdat.Item2[2];
                             tdesc = tdesc + Environment.NewLine + "• Licencia: " + imgdat.Item2[0] + " (" + imgdat.Item2[1] + ")";
-                            System.IO.File.WriteAllText(folderpath + datename + ".txt", tdesc);
-                            System.IO.File.WriteAllText(folderpath + datename + ".commons.txt", "https://commons.wikimedia.org/wiki/File:" + Utils.UrlWebEncode(tx.Item2.Replace(" ", "_")));
+                            tdesc = Resources.header + tdesc + Resources.bottom;
+                            System.IO.File.WriteAllText(folderpath + datename + ".htm", tdesc);
+                            System.IO.File.WriteAllText(folderpath + datename + ".commons.htm", "https://commons.wikimedia.org/wiki/File:" + Utils.UrlWebEncode(tx.Item2.Replace(" ", "_")));
                             imgdat.Item1.Save(folderpath + datename + ".jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
 
                         }
@@ -50,13 +52,13 @@ namespace DailyRes
                             DateTime tday = DateTime.UtcNow.AddDays(i);
                             string datename = tday.ToString("dd-MM-yyyy");
 
-                            if (System.IO.File.Exists(folderpath + datename + ".txt"))
+                            if (System.IO.File.Exists(folderpath + datename + ".htm"))
                             {
-                                System.IO.File.Delete(folderpath + datename + ".txt");
+                                System.IO.File.Delete(folderpath + datename + ".htm");
                             }
-                            if (System.IO.File.Exists(folderpath + datename + ".commons.txt"))
+                            if (System.IO.File.Exists(folderpath + datename + ".commons.htm"))
                             {
-                                System.IO.File.Delete(folderpath + datename + ".commons.txt");
+                                System.IO.File.Delete(folderpath + datename + ".commons.htm");
                             }
                             if (System.IO.File.Exists(folderpath + datename + ".jpg"))
                             {
