@@ -128,12 +128,7 @@
 &lt;/html&gt;</value>
   </data>
   <data name="header" xml:space="preserve">
-    <value>&lt;meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" /&gt;
-
-&lt;meta http-equiv="Pragma" content="no-cache" /&gt;
-
-&lt;meta http-equiv="Expires" content="0" /&gt;
-&lt;!DOCTYPE html&gt;
+    <value>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
 &lt;script&gt;
