@@ -1,0 +1,663 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+IRCCLIENT
+</name>
+</assembly>
+<members>
+<member name="T:IRCCLIENT.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:IRCCLIENT.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:IRCCLIENT.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="T:IRCCLIENT.IRCMessages">
+<summary>
+  Clase de recurso fuertemente tipado, para buscar cadenas traducidas, etc.
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.ResourceManager">
+<summary>
+  Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.Culture">
+<summary>
+  Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
+  búsquedas de recursos mediante esta clase de recurso fuertemente tipado.
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.AddedExtract">
+<summary>
+  Busca una cadena traducida similar a  Se añadió {0} extracto nuevo..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.AddedExtracts">
+<summary>
+  Busca una cadena traducida similar a  Se añadieron {0} extractos nuevos..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.ApparentResult">
+<summary>
+  Busca una cadena traducida similar a Aparentemente el resultado es {0}..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.ArchivedThreadDestSumm">
+<summary>
+  Busca una cadena traducida similar a Bot: Archivando {0} hilo con más de {1} días de antigüedad desde &apos;[[{2}]]&apos;..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.ArchivedThreadsDestSumm">
+<summary>
+  Busca una cadena traducida similar a Bot: Archivando {0} hilos con más de {1} días de antigüedad desde &apos;[[{2}]]&apos;..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.ArchivedThreadsSumm">
+<summary>
+  Busca una cadena traducida similar a Bot: Archivando {0} hilos con más de {1} días de antigüedad..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.ArchivedThreadSumm">
+<summary>
+  Busca una cadena traducida similar a Bot: Archivando {0} hilo con más de {1} días de antigüedad..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.ArchivingInclusions">
+<summary>
+  Busca una cadena traducida similar a Archivando todas las páginas que incluyan la plantilla &apos;{0}&apos;..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.Author">
+<summary>
+  Busca una cadena traducida similar a Autor : .
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.AutoArchive">
+<summary>
+  Busca una cadena traducida similar a Autoarchivando &apos;{0}&apos;..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.AutoArchiveDone">
+<summary>
+  Busca una cadena traducida similar a Autoarchivado de &apos;{0}&apos; completo..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.Cancelled">
+<summary>
+  Busca una cadena traducida similar a Cancelada :.
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.CannotPause">
+<summary>
+  Busca una cadena traducida similar a La tarea crítica &apos;{0}&apos; no puede ser pausada..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.CheckingUser">
+<summary>
+  Busca una cadena traducida similar a Comprobando el usuario {0}.
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.CheckOp">
+<summary>
+  Busca una cadena traducida similar a Verificando si el usuario {0} en el host {1} es OP..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.CommandIssued">
+<summary>
+  Busca una cadena traducida similar a Comando &apos;{0}&apos; ingresado por &apos;{1}&apos;. Argumentos: &apos;{2}&apos;.
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.ConnectionError">
+<summary>
+  Busca una cadena traducida similar a Error de conexión. EX: {0}.
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.CreatingBoxSumm">
+<summary>
+  Busca una cadena traducida similar a (Bot) Creando nueva caja de archivos..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.CreatingConnection">
+<summary>
+  Busca una cadena traducida similar a Creando conexión..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.Critical">
+<summary>
+  Busca una cadena traducida similar a Crítica : .
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.DebugDisabled">
+<summary>
+  Busca una cadena traducida similar a Log debug desactivado..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.DebugEnabled">
+<summary>
+  Busca una cadena traducida similar a Log debug activado..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.Div0">
+<summary>
+  Busca una cadena traducida similar a Dividiendo por 0....
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.EnteringRoom">
+<summary>
+  Busca una cadena traducida similar a Entrando a {0}..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.EnterTaskNumber">
+<summary>
+  Busca una cadena traducida similar a Ingrese el número de la tarea..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.Errors">
+<summary>
+  Busca una cadena traducida similar a Errores : .
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.EverySec">
+<summary>
+  Busca una cadena traducida similar a Cada {0} segundos..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.Executions">
+<summary>
+  Busca una cadena traducida similar a Eejcuciones : .
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.ExitMessage">
+<summary>
+  Busca una cadena traducida similar a OK, me voy....
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.FileCreateErr">
+<summary>
+  Busca una cadena traducida similar a Error al crear el archivo &apos;{0}&apos;..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.FileSaveErr">
+<summary>
+  Busca una cadena traducida similar a Error al guardar el archivo &apos;{0}&apos;..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.GetPageExtract">
+<summary>
+  Busca una cadena traducida similar a Cargando el extracto de la página &apos;{0}&apos;..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.GetPagesExtract">
+<summary>
+  Busca una cadena traducida similar a Cargando {0} extractos de páginas..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.Infinite">
+<summary>
+  Busca una cadena traducida similar a Infinita : .
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.InvalidNamespace">
+<summary>
+  Busca una cadena traducida similar a El espacio de nombres de la página &apos;{0}&apos; ({1}) es inválido..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.InvalidParameter">
+<summary>
+  Busca una cadena traducida similar a Parámetro inválido..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.InvalidParameter1">
+<summary>
+  Busca una cadena traducida similar a Invalid parameter..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.InvalidUserArchive">
+<summary>
+  Busca una cadena traducida similar a El usuario &apos;{0}&apos; no cumple con los requisitos mínimos de archivado..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.JoiningChannel">
+<summary>
+  Busca una cadena traducida similar a Entrando al canal {0}..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.LeavingRoom">
+<summary>
+  Busca una cadena traducida similar a Saliendo de {0}..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.LoadingNewExtracts">
+<summary>
+  Busca una cadena traducida similar a Cargando {0} resúmenes nuevos..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.LoadingOldExtracts">
+<summary>
+  Busca una cadena traducida similar a Cargando {0} resúmenes antiguos..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.LoadingOPs">
+<summary>
+  Busca una cadena traducida similar a Cargando operadores..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.LostConnectionRET">
+<summary>
+  Busca una cadena traducida similar a Conexión perdida. Reintentando en {0} segundos..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.MalformedArchiveConfig">
+<summary>
+  Busca una cadena traducida similar a La plantilla de archivado en la página &apos;{0}&apos; está malformada..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.MalformedOPs">
+<summary>
+  Busca una cadena traducida similar a Archivo de operadores malformado..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.MustBeGreaterThan">
+<summary>
+  Busca una cadena traducida similar a El valor debe ser superior a {0}..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.Name">
+<summary>
+  Busca una cadena traducida similar a Nombre : .
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.NewIrcNetworkAdress">
+<summary>
+  Busca una cadena traducida similar a Dirección del servidor de IRC principal: .
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.NewIrcNetworkChannels">
+<summary>
+  Busca una cadena traducida similar a Canales de IRC (separados por pipe [|]): .
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.NewIrcNetworkNickName">
+<summary>
+  Busca una cadena traducida similar a Nickname en el servidor IRC: .
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.NewIrcNetworkPass">
+<summary>
+  Busca una cadena traducida similar a Contraseña de Nickserv o de servidor: .
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.NewOp">
+<summary>
+  Busca una cadena traducida similar a Operador IRC (Nickname!hostname):.
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.NextNotif">
+<summary>
+  Busca una cadena traducida similar a . El próximo aviso será en 5 minutos..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.NickervAuth">
+<summary>
+  Busca una cadena traducida similar a Intentando autenticar via nickserv..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.NoIrcConfigFile">
+<summary>
+  Busca una cadena traducida similar a No existe el archivo de configuracion IRC.
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.NoOp">
+<summary>
+  Busca una cadena traducida similar a No se ha definido ningun operador..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.NoOpsFile">
+<summary>
+  Busca una cadena traducida similar a El archivo de operadores no existe..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.NoRunningTasks">
+<summary>
+  Busca una cadena traducida similar a No hay tareas en ejecución..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.NotASubPage">
+<summary>
+  Busca una cadena traducida similar a La página &apos;{0}&apos; no es una subpágina de la página principal (&apos;{1}&apos;)..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.NotConnected">
+<summary>
+  Busca una cadena traducida similar a No conectado..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.NothingToArchive">
+<summary>
+  Busca una cadena traducida similar a No hay hilos por archivar en &apos;{0}&apos;..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.NotSigned">
+<summary>
+  Busca una cadena traducida similar a No se ha completado la firma en &apos;{0}&apos;..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.NullParameter">
+<summary>
+  Busca una cadena traducida similar a El parámetro es nulo..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.NumericValue">
+<summary>
+  Busca una cadena traducida similar a Ingrese un valor numérico.
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.OmittedExtract">
+<summary>
+  Busca una cadena traducida similar a  Se omitió {0} extracto inseguro..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.OmittedExtracts">
+<summary>
+  Busca una cadena traducida similar a  Se omitieron {0} extractos inseguros..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.OneThreadPage">
+<summary>
+  Busca una cadena traducida similar a La página &apos;{0}&apos; solo tiene un hilo..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.OpAdded">
+<summary>
+  Busca una cadena traducida similar a El usuario {0} ha sido añadido como operador..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.OpNotAdded">
+<summary>
+  Busca una cadena traducida similar a El usuario {0} no ha sido añadido como operador..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.OpNotRemoved">
+<summary>
+  Busca una cadena traducida similar a {0} no es un operador..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.OpRemoved">
+<summary>
+  Busca una cadena traducida similar a {0} ya no es un operador..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.OverwritingBoxSumm">
+<summary>
+  Busca una cadena traducida similar a (Bot) Creando una nueva caja de archivos por sobre una ya existente..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.Paused">
+<summary>
+  Busca una cadena traducida similar a Pausada : .
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.PausedTask">
+<summary>
+  Busca una cadena traducida similar a Tarea &apos;{0}&apos; pausada..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.Periodic">
+<summary>
+  Busca una cadena traducida similar a Periódica.
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.RecreatingText">
+<summary>
+  Busca una cadena traducida similar a Recreando texto..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.RequestedByOp">
+<summary>
+  Busca una cadena traducida similar a Solicitado por un operador..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.RunningTasks">
+<summary>
+  Busca una cadena traducida similar a Hay {0} tareas ejecutándose en este momento..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.SetName">
+<summary>
+  Busca una cadena traducida similar a Estableciendo nombre..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.SetNick">
+<summary>
+  Busca una cadena traducida similar a Estableciendo nickname..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.Sheduled">
+<summary>
+  Busca una cadena traducida similar a Programada.
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.StartingIRCClient">
+<summary>
+  Busca una cadena traducida similar a Starting IRC client..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.Status">
+<summary>
+  Busca una cadena traducida similar a Estado : .
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.SuccessfulOperation">
+<summary>
+  Busca una cadena traducida similar a Operación exitosa..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.SystemTime">
+<summary>
+  Busca una cadena traducida similar a La hora del sistema es: .
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.TaskInfo">
+<summary>
+  Busca una cadena traducida similar a {0}: {1} por {2}. Estado: {3}..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.TaskNotExist">
+<summary>
+  Busca una cadena traducida similar a La tarea no existe..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.TimeOrInterval">
+<summary>
+  Busca una cadena traducida similar a Tiempo/Intervalo : .
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.TryingToSave">
+<summary>
+  Busca una cadena traducida similar a Intentando guardar &apos;{0}&apos;..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.Type">
+<summary>
+  Busca una cadena traducida similar a Tipo : .
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.Unauthorized">
+<summary>
+  Busca una cadena traducida similar a No autorizado..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.UnexpectedEX">
+<summary>
+  Busca una cadena traducida similar a Excepción inesperada: {0}.
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.UnpausedTask">
+<summary>
+  Busca una cadena traducida similar a Tarea &apos;{0}&apos; despausada..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.UnsignedMessageDetected">
+<summary>
+  Busca una cadena traducida similar a Mensaje sin firmar detectado en &apos;{0}&apos;..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.UnsignedSumm">
+<summary>
+  Busca una cadena traducida similar a Bot: Añadiendo firma faltante de [[Usuario:{0}|{0}]]..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.UnsuccessfulOperation">
+<summary>
+  Busca una cadena traducida similar a La operación ha fallado..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.UpdateBoxEx">
+<summary>
+  Busca una cadena traducida similar a Error al actualizar la caja de archivos en &apos;{0}&apos;. EX: {1}.
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.UpdatedExtracts">
+<summary>
+  Busca una cadena traducida similar a Bot: {0} resúmenes actualizados..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.UpdatingArchiveBox">
+<summary>
+  Busca una cadena traducida similar a Actualizando caja de archivos..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.UpdatingBoxSumm">
+<summary>
+  Busca una cadena traducida similar a Bot: Actualizando caja de archivos..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.UpdatingCount">
+<summary>
+  Busca una cadena traducida similar a Bot: Actualizando contador..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.UserBlocked">
+<summary>
+  Busca una cadena traducida similar a El usuario {0} está bloqueado..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.UserEditedDay">
+<summary>
+  Busca una cadena traducida similar a La última edición de {0} fue hace {1} día..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.UserEditedDays">
+<summary>
+  Busca una cadena traducida similar a La última edición de {0} fue hace {1} días..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.UserEditedHour">
+<summary>
+  Busca una cadena traducida similar a La última edición de {0} fue hace {1} hora..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.UserEditedHours">
+<summary>
+  Busca una cadena traducida similar a La última edición de {0} fue hace {1} horas..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.UserEditedMinutes">
+<summary>
+  Busca una cadena traducida similar a La última edición de {0} fue hace {1} minutos..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.UserInactive">
+<summary>
+  Busca una cadena traducida similar a El usuario {0} está inactivo..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.UserInexistent">
+<summary>
+  Busca una cadena traducida similar a El usuario {0} no existe..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.UserNoEdits">
+<summary>
+  Busca una cadena traducida similar a El usuario {0} no tiene ediciones en esta Wiki..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.UserNotOp">
+<summary>
+  Busca una cadena traducida similar a El usuario {0} en el host {1} no es OP..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.UserOP">
+<summary>
+  Busca una cadena traducida similar a El usuario {0} en el host {1} es OP..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.ValueTooBig">
+<summary>
+  Busca una cadena traducida similar a El valor es demasiado grande..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.WaitingTime">
+<summary>
+  Busca una cadena traducida similar a Tiempo de espera: {0}ms..
+</summary>
+</member>
+<member name="P:IRCCLIENT.IRCMessages.WikiThreadError">
+<summary>
+  Busca una cadena traducida similar a Error en un hilo de la página &apos;{0}&apos;. Hilo número {1}. EX: {2}.
+</summary>
+</member>
+<member name="M:IRCCLIENT.IRC.IRCCommandResolver.BeginsWithPrefix(System.String[],System.String)">
+ <summary>
+ Verifica si un comando comienza por uno de los prefijos pasados como parámetro
+ </summary>
+ <param name="Prefixes">Prefijos.</param>
+ <param name="Commandline">Línea a analizar.</param>
+ <returns></returns>
+</member>
+<member name="M:IRCCLIENT.IRC.IRCCommands.About(IRCCLIENT.IRC.IRCCommandParams)">
+ <summary>
+ Retorna informacion sobre el estado del bot dependiendo si el solicitante es OP.
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:IRCCLIENT.IRC.IRC_Client.AddOP(System.String,System.String,System.String)">
+ <summary>
+ Verifica un mensaje en IRC y si el que lo envió es un operador, añade un operador a la lista.
+ </summary>
+ <param name="message">Línea completa del mensaje</param>
+ <param name="Source">Origen del mensaje</param>
+ <param name="user">Usuario que crea el evento</param>
+ <returns></returns>
+</member>
+<member name="M:IRCCLIENT.IRC.IRC_Client.DelOP(System.String,System.String,System.String)">
+ <summary>
+ Verifica un mensaje en IRC y si el que lo envió es un operador elimina el operador indicado en el mensaje.
+ </summary>
+ <param name="message">Línea completa del mensaje</param>
+ <param name="Source">Origen del mensaje</param>
+ <param name="user">Usuario que crea el evento</param>
+ <returns></returns>
+</member>
+<member name="M:IRCCLIENT.IRC.IRC_Client.IsOp(System.String,System.String,System.String)">
+ <summary>
+ Verifica un mensaje en IRC y retorna verdadero si el que lo envió es un operador.
+ </summary>
+ <param name="message">Línea completa del mensaje</param>
+ <param name="Source">Origen del mensaje</param>
+ <param name="user">Usuario que crea el evento</param>
+ <returns></returns>
+</member>
+</members>
+</doc>

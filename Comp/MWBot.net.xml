@@ -1,0 +1,1541 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+MWBot.net
+</name>
+</assembly>
+<members>
+<member name="T:MWBot.net.My.Resources.Resources">
+<summary>
+  Clase de recurso fuertemente tipado, para buscar cadenas traducidas, etc.
+</summary>
+</member>
+<member name="P:MWBot.net.My.Resources.Resources.ResourceManager">
+<summary>
+  Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
+</summary>
+</member>
+<member name="P:MWBot.net.My.Resources.Resources.Culture">
+<summary>
+  Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
+  búsquedas de recursos mediante esta clase de recurso fuertemente tipado.
+</summary>
+</member>
+<member name="P:MWBot.net.My.Resources.Resources.Messages">
+<summary>
+  Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;root&gt;
+  &lt;!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers &amp; schema ...
+    &lt;resheader name=&quot;resmimetype&quot;&gt;text/microsoft-resx&lt;/resheader&gt;
+    &lt;resheader n [resto de la cadena truncado]&quot;;.
+</summary>
+</member>
+<member name="M:MWBot.net.WikiBot.ApiHandler.#ctor(System.String,System.String,System.Uri)">
+ <summary>
+ Inicializa una nueva instancia del bot.
+ </summary>
+ <param name="BotUsername">Nombre de usuario del bot</param>
+ <param name="BotPassword">Contraseña del bot (solo botpassword), más información ver https://www.mediawiki.org/wiki/Manual:Bot_passwords </param>
+ <param name="tUri">Direccion de la API</param>
+</member>
+<member name="M:MWBot.net.WikiBot.ApiHandler.GetWikiToken">
+ <summary>
+ Obtiene un Token y cookies de ingreso, establece las cookies de la clase y retorna el token como string.
+ </summary>
+</member>
+<member name="M:MWBot.net.WikiBot.ApiHandler.LogOn">
+ <summary>
+ Luego de obtener un Token y cookies de ingreso, envía estos al servidor para loguear y guarda las cookies de sesión.
+ </summary>
+</member>
+<member name="M:MWBot.net.WikiBot.ApiHandler.Postquery(System.String)">
+ <summary>
+ Envía un POST a la url de la API con los datos indicados
+ </summary>
+ <param name="postData"></param>
+ <returns></returns>
+</member>
+<member name="M:MWBot.net.WikiBot.ApiHandler.Getquery(System.String)">
+ <summary>
+ Envía una solicitud GET a la api con los datos solicitados (luego del "?")
+ </summary>
+ <param name="getData"></param>
+ <returns></returns>
+</member>
+<member name="M:MWBot.net.WikiBot.ApiHandler.POST(System.Uri,System.String)">
+ <summary>
+ Envía una solicitud POST a la uri indicada
+ </summary>
+ <param name="pageUri">Recurso al cual enviar la solicitud</param>
+ <param name="postData">Datos en la solicitud POST como application/x-www-form-urlencoded</param>
+ <returns></returns>
+</member>
+<member name="M:MWBot.net.WikiBot.ApiHandler.CleanCookies">
+ <summary>
+ Limpia todas las cookies, retorna "true" si finaliza correctamente.
+ </summary>
+</member>
+<member name="M:MWBot.net.WikiBot.ApiHandler.GetDataAndResult(System.Uri)">
+ <summary>Realiza una solicitud de tipo GET a un recurso web y retorna el texto.</summary>
+ <param name="pageURI">URI absoluta del recurso web.</param>
+</member>
+<member name="M:MWBot.net.WikiBot.ApiHandler.GetDataAndResult(System.Uri,System.Net.CookieContainer@)">
+ <summary>Realiza una solicitud de tipo GET a un recurso web y retorna el texto.</summary>
+ <param name="pageUri">URL absoluta del recurso web.</param>
+ <param name="Cookies">Cookies sobre los que se trabaja.</param>
+</member>
+<member name="M:MWBot.net.WikiBot.ApiHandler.PostDataAndGetResult(System.Uri,System.String)">
+ <summary>Realiza una solicitud de tipo POST a un recurso web y retorna el texto.</summary>
+ <param name="pageURI">URI absoluta del recurso web.</param>
+ <param name="postData">Cadena de texto que se envia en el POST.</param>
+</member>
+<member name="M:MWBot.net.WikiBot.ApiHandler.PostDataAndGetResult(System.Uri,System.String,System.Net.CookieContainer@,System.Int32)">
+ <summary>Realiza una solicitud de tipo POST a un recurso web y retorna el texto.</summary>
+ <param name="pageUri">URL absoluta del recurso web.</param>
+ <param name="postData">Cadena de texto que se envia en el POST.</param>
+</member>
+<member name="M:MWBot.net.WikiBot.Bot.LoadConfig(MWBot.net.ConfigFile)">
+ <summary>
+ Inicializa las configuraciones genereales del programa desde el archivo de configuración.
+ Si no existe el archivo, solicita datos al usuario y lo genera.
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:MWBot.net.WikiBot.Bot.GetLastRevIds(System.String[])">
+ <summary>
+ Retorna el ultimo REVID (como integer) de las paginas indicadas como SortedList (con el formato {Pagename,Revid}), las paginas deben ser distintas. 
+ En caso de no existir la pagina, retorna -1 como REVID.
+ </summary>
+ <param name="pageNames">Array con nombres de paginas unicos.</param>
+ <remarks></remarks>
+</member>
+<member name="M:MWBot.net.WikiBot.Bot.SearchForPages(System.String)">
+ <summary>
+ Entrega los títulos de las páginas que coincidan remotamente con el texto entregado como parámetro.
+ Usa las mismas sugerencias del cuadro de búsqueda de Wikipedia, pero por medio de la API.
+ Si no hay coincidencia, entrega un un string() vacio.
+ </summary>
+ <param name="PageName">Título aproximado o similar al de una página</param>
+ <returns></returns>
+</member>
+<member name="M:MWBot.net.WikiBot.Bot.SearchForPage(System.String)">
+ <summary>
+ Entrega el título de la primera página que coincida remotamente con el texto entregado como parámetro.
+ Usa las mismas sugerencias del cuadro de búsqueda de Wikipedia, pero por medio de la API.
+ Si no hay coincidencia, entrega una cadena de texto vacía.
+ </summary>
+ <param name="PageName">Título aproximado o similar al de una página</param>
+ <returns></returns>
+</member>
+<member name="M:MWBot.net.WikiBot.Bot.GetSearchedPage(System.String)">
+ <summary>
+ Entrega la primera página que coincida remotamente con el texto entregado como parámetro.
+ Usa las mismas sugerencias del cuadro de búsqueda de Wikipedia, pero por medio de la API.
+ Si no hay coincidencia, no retorna nada.
+ </summary>
+ <param name="PageName"></param>
+ <returns></returns>
+</member>
+<member name="M:MWBot.net.WikiBot.Bot.GetORESScores(System.Int32[])">
+ <summary>
+ Retorna el valor ORES (en %) de los EDIT ID (eswiki) indicados como SortedList (con el formato {ID,Score}), los EDIT ID deben ser distintos. 
+ En caso de no existir el EDIT ID, retorna 0.
+ </summary>
+ <param name="revids">Array con EDIT ID's unicos.</param>
+ <remarks>Los EDIT ID deben ser distintos</remarks>
+</member>
+<member name="M:MWBot.net.WikiBot.Bot.GetImagesExtract(System.String[])">
+ <summary>
+ Retorna las imagenes de preview de las páginas indicadas en el array de entrada como SortedList (con el formato {Página,Nombre de imagen}), los nombres de página deben ser distintos. 
+ En caso de no existir la imagen, retorna string.empty.
+ </summary>
+ <param name="pageNames">Array con nombres de página unicos.</param>
+</member>
+<member name="M:MWBot.net.WikiBot.Bot.GetPageExtract(System.String,System.Int32)">
+ <summary>
+ Retorna la entradilla de la página indicada de entrada como string con el límite indicado. 
+ En caso de no existir el la página o el resumen, no lo retorna.
+ </summary>
+ <param name="PageName">Nombre exacto de la página.</param>
+ <param name="CharLimit">Cantidad máxima de carácteres.</param>
+</member>
+<member name="M:MWBot.net.WikiBot.Bot.GetPageExtract(System.String)">
+ <summary>
+ Retorna la entradilla de la página indicada de entrada como string con el límite indicado. 
+ En caso de no existir el la página o el resumen, no lo retorna.
+ </summary>
+ <param name="pageName">Nombre exacto de la página.</param>
+</member>
+<member name="M:MWBot.net.WikiBot.Bot.GetImageExtract(System.String)">
+ <summary>
+ Retorna en nombre del archivo de imagen de la página indicada de entrada como string. 
+ En caso de no existir el la página o la imagen, no lo retorna.
+ </summary>
+ <param name="PageName">Nombre exacto de la página.</param>
+</member>
+<member name="M:MWBot.net.WikiBot.Bot.GetPagesExtract(System.String[])">
+ <summary>
+ Retorna los resúmenes de las páginas indicadas en el array de entrada como SortedList (con el formato {Página,Resumen}), los nombres de página deben ser distintos. 
+ En caso de no existir el la página o el resumen, no lo retorna.
+ </summary>
+ <param name="pageNames">Array con nombres de página unicos.</param>
+ <remarks></remarks>
+</member>
+<member name="M:MWBot.net.WikiBot.Bot.GetPagesExtract(System.String[],System.Int32)">
+ <summary>
+ Retorna los resúmenes de las páginas indicadas en el array de entrada como SortedList (con el formato {Página,Resumen}), los nombres de página deben ser distintos. 
+ En caso de no existir el la página o el resumen, no lo retorna.
+ </summary>
+ <param name="pageNames">Array con nombres de página unicos.</param>
+ <param name="characterLimit">Límite de carácteres en el resumen.</param>
+ <remarks></remarks>
+</member>
+<member name="M:MWBot.net.WikiBot.Bot.GetPagesExtract(System.String[],System.Int32,System.Boolean)">
+ <summary>
+ Retorna los resúmenes de las páginas indicadas en el array de entrada como SortedList (con el formato {Página,Resumen}), los nombres de página deben ser distintos. 
+ En caso de no existir el la página o el resumen, no lo retorna.
+ </summary>
+ <param name="pageNames">Array con nombres de página unicos.</param>
+ <param name="characterLimit">Límite de carácteres en el resumen.</param>
+ <remarks></remarks>
+</member>
+<member name="M:MWBot.net.WikiBot.Bot.SafeTrimExtract(System.String,System.Int32)">
+ <summary>
+ Corta de la mejor forma que pueda un extracto para que esté debajo del límite de caracteres especificado.
+ </summary>
+ <param name="safetext"></param>
+ <param name="charlimit"></param>
+ <returns></returns>
+</member>
+<member name="M:MWBot.net.WikiBot.Bot.GetWikiExtractFromPages(System.String[],System.Int32)">
+ <summary>
+ Obtiene la entradilla de varias páginas manteniendo el wikitexto pero eliminando plantillas y referencias.
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:MWBot.net.WikiBot.Bot.GetWikiExtractFromPages(MWBot.net.WikiBot.Page[],System.Int32)">
+ <summary>
+ Obtiene la entradilla de varias páginas manteniendo el wikitexto pero eliminando plantillas y referencias.
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:MWBot.net.WikiBot.Bot.GetWikiExtractFromPage(MWBot.net.WikiBot.Page,System.Int32)">
+ <summary>
+ Obtiene la entradilla de una página manteniendo el wikitexto pero eliminando plantillas y referencias.
+ </summary>
+ <param name="page"></param>
+ <param name="charLimit"></param>
+ <returns></returns>
+</member>
+<member name="M:MWBot.net.WikiBot.Bot.BOTGetPagesExtract(System.String[],System.Int32,System.Boolean)">
+ <summary>
+ Retorna los resúmenes de las páginas indicadas en el array de entrada como SortedList (con el formato {Página,Resumen}), los nombres de página deben ser distintos. 
+ En caso de no existir el la página o el resumen, no lo retorna.
+ </summary>
+ <param name="pageNames">Array con nombres de página unicos.</param>
+ <remarks></remarks>
+</member>
+<member name="M:MWBot.net.WikiBot.Bot.UserFirstGuess(System.String)">
+ <summary>
+ Entrega el título de la primera página en el espacio de nombre usuario que coincida remotamente con el texto entregado como parámetro.
+ Usa las mismas sugerencias del cuadro de búsqueda de Wikipedia, pero por medio de la API.
+ Si no hay coincidencia, entrega una cadena de texto vacía.
+ </summary>
+ <param name="text">Título relativo a buscar</param>
+ <returns></returns>
+</member>
+<member name="M:MWBot.net.WikiBot.Bot.Replacetext(MWBot.net.WikiBot.Page,System.String,System.String,System.String)">
+ <summary>
+ Busca un texto exacto en una página y lo reemplaza.
+ </summary>
+ <param name="Requestedpage">Página a realizar el cambio</param>
+ <param name="requestedtext">Texto a reeplazar</param>
+ <param name="newtext">Texto que reemplaza</param>
+ <param name="reason">Motivo del reemplazo</param>
+ <returns></returns>
+</member>
+<member name="M:MWBot.net.WikiBot.Bot.GetallInclusions(System.String)">
+ <summary>
+ Retorna un array de tipo string con todas las páginas donde el nombre de la página indicada es llamada (no confundir con "lo que enlaza aquí").
+ </summary>
+ <param name="pageName">Nombre exacto de la pagina.</param>
+</member>
+<member name="M:MWBot.net.WikiBot.Bot.GetLastDiff(MWBot.net.WikiBot.Page)">
+ <summary>
+ Obtiene las diferencias de la última edición de la página.
+ </summary>
+ <param name="thepage">Página a revisar.</param>
+ <returns></returns>
+</member>
+<member name="M:MWBot.net.WikiBot.Bot.GetDiff(System.Int32,System.Int32)">
+ <summary>
+ Obtiene las diferencias entre dos rev id.
+ </summary>
+ <param name="fromid">Id base en la comparación.</param>
+ <param name="toid">Id a compara.r</param>
+ <returns></returns>
+</member>
+<member name="M:MWBot.net.WikiBot.Bot.GetallInclusions(MWBot.net.WikiBot.Page)">
+ <summary>
+ Retorna un array de tipo string con todas las páginas donde la página indicada es llamada (no confundir con "lo que enlaza aquí").
+ </summary>
+ <param name="tpage">Página que se llama.</param>
+</member>
+<member name="M:MWBot.net.WikiBot.Bot.GetallInclusionsPages(System.String)">
+ <summary>
+ Retorna un array con todas las páginas donde la página indicada es llamada (no confundir con "lo que enlaza aquí").
+ </summary>
+ <param name="pageName">Nombre exacto de la pagina.</param>
+</member>
+<member name="M:MWBot.net.WikiBot.Bot.GetallInclusionsPages(MWBot.net.WikiBot.Page)">
+ <summary>
+ Retorna un array con todas las páginas donde la página indicada es llamada (no confundir con "lo que enlaza aquí").
+ </summary>
+ <param name="tpage">Página que se llama.</param>
+</member>
+<member name="M:MWBot.net.WikiBot.Bot.Getpage(System.String)">
+ <summary>
+ Retorna un elemento Page coincidente al nombre entregado como parámetro.
+ </summary>
+ <param name="pageName">Nombre exacto de la página</param>
+</member>
+<member name="M:MWBot.net.WikiBot.Bot.Getpage(System.Int32)">
+ <summary>
+ Retorna un elemento Page coincidente al nombre entregado como parámetro.
+ </summary>
+ <param name="revId">ID de la revisión.</param>
+</member>
+<member name="M:MWBot.net.WikiBot.Bot.ValidUser(MWBot.net.WikiBot.WikiUser)">
+ <summary>
+ Verifica si el usuario que se le pase cumple con los requisitos para verificar su actividad
+ </summary>
+ <param name="user">Usuario de Wiki</param>
+ <returns></returns>
+</member>
+<member name="M:MWBot.net.WikiBot.Bot.PrefixSearch(System.String)">
+ <summary>
+ Retorna la cantidad máxima que permita la api de páginas que comienze con el texto.
+ </summary>
+ <param name="pagePrefix"></param>
+ <returns></returns>
+</member>
+<member name="M:MWBot.net.WikiBot.Image.#ctor(System.String,MWBot.net.WikiBot.Bot@)">
+ <summary>
+ Obtiene una imagen de la wiki dado el nombre exacto (Máximo 1000px de ancho). Como el proyecto eswiki obtiene las imágenes de Commons se consulta a la wiki misma aunque se retorne una URL a Commons.
+ </summary>
+ <param name="CommonsFileName"></param>
+ <param name="Workerbot"></param>
+</member>
+<member name="M:MWBot.net.WikiBot.Image.Save(System.String)">
+ <summary>
+ Guarda la imagen (en png ignorando la extensión).
+ </summary>
+ <param name="Path"></param>
+</member>
+<member name="M:MWBot.net.WikiBot.Page.ORESScores">
+ <summary>
+ Entrega el puntaje ORES {damaging,goodfaith} de la página.
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:MWBot.net.WikiBot.Page.Content">
+ <summary>
+ Entrega el contenido (wikitexto) de la página.
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:MWBot.net.WikiBot.Page.CurrentRevId">
+ <summary>
+ Entrega el revid actual de la página.
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:MWBot.net.WikiBot.Page.Lastuser">
+ <summary>
+ entrega el último usuario en editar la página.
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:MWBot.net.WikiBot.Page.Title">
+ <summary>
+ Entrega el título de la página (con el namespace).
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:MWBot.net.WikiBot.Page.Timestamp">
+ <summary>
+ Entrega la marca de tiempo de la edición actual de la página.
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:MWBot.net.WikiBot.Page.Threads">
+ <summary>
+ Entrega las secciones de la página
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:MWBot.net.WikiBot.Page.Categories">
+ <summary>
+ Entrega las primeras 10 categorías de la página.
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:MWBot.net.WikiBot.Page.PageViews">
+ <summary>
+ Entrega el promedio de visitas diarias de la página en los últimos 2 meses.
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:MWBot.net.WikiBot.Page.Size">
+ <summary>
+ Tamaño de la página en bytes.
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:MWBot.net.WikiBot.Page.PageNamespace">
+ <summary>
+ Número del espacio de nombres al cual pertenece la página.
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:MWBot.net.WikiBot.Page.Extract">
+ <summary>
+ Extracto de la intro de la pagina (segun wikipedia, largo completo).
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:MWBot.net.WikiBot.Page.Thumbnail">
+ <summary>
+ Imagen de miniatura de la pagina.
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:MWBot.net.WikiBot.Page.ParentRevId">
+ <summary>
+ Obtiene el revid de la edición anterior de la página (si existe)
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:MWBot.net.WikiBot.Page.Exists">
+ <summary>
+ ¿La página existe?
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:MWBot.net.WikiBot.Page.BotEditable">
+ <summary>
+ Indica si puede ser editada por el bot.
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:MWBot.net.WikiBot.Page.LastEdit">
+ <summary>
+ Entrega la fecha de la última edición en la página
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:MWBot.net.WikiBot.Page.#ctor(System.String,MWBot.net.WikiBot.Bot@)">
+ <summary>
+ Inicializa una nueva página, por lo general no se llama de forma directa. Se puede obtener una página creandola con Bot.Getpage.
+ </summary>
+ <param name="PageTitle">Título exacto de la página</param>
+ <param name="wbot">Bot logueado a la wiki</param>
+</member>
+<member name="M:MWBot.net.WikiBot.Page.#ctor(System.Int32,MWBot.net.WikiBot.Bot@)">
+ <summary>
+ Inicializa una nueva página, por lo general no se llama de forma directa. Se puede obtener una página creandola con Bot.Getpage.
+ </summary>
+ <param name="revid">Revision ID.</param>/param>
+ <param name="wbot">Bot logueado a la wiki</param>
+</member>
+<member name="M:MWBot.net.WikiBot.Page.Load">
+ <summary>
+ Inicializa de nuevo la página (al crear una página esta ya está inicializada).
+ </summary>
+</member>
+<member name="M:MWBot.net.WikiBot.Page.Loadpage(System.String,System.Uri)">
+ <summary>
+ Inicializa la página, esta función no se llama de forma directa
+ </summary>
+ <param name="PageTitle">Título exacto de la página</param>
+ <param name="site">Sitio de la página</param>
+ <returns></returns>
+</member>
+<member name="M:MWBot.net.WikiBot.Page.Loadpage(System.Int32,System.Uri)">
+ <summary>
+ Inicializa la página, esta función no se llama de forma directa
+ </summary>
+ <param name="Revid">ID de revisión.</param>
+ <param name="site">Sitio de la página.</param>
+ <returns></returns>
+</member>
+<member name="M:MWBot.net.WikiBot.Page.GetORESScores(System.Int32)">
+ <summary>
+ Retorna el valor ORES (en %) de un EDIT ID (eswiki) indicados como porcentaje en double. 
+ En caso de no existir el EDIT ID, retorna 0.
+ </summary>  
+ <param name="revid">EDIT ID de la edicion a revisar</param>
+ <remarks>Los EDIT ID deben ser distintos</remarks>
+</member>
+<member name="M:MWBot.net.WikiBot.Page.Save(System.String,System.String,System.Boolean,System.Boolean,System.Boolean)">
+ <summary>
+ Guarda la página en la wiki. Si la página no existe, la crea.
+ </summary>
+ <param name="pageContent">Texto (wikicódigo) de la página</param>
+ <param name="summary">Resumen de la edición</param>
+ <param name="IsMinor">¿Marcar como menor?</param>
+ <param name="spam">¿Reemplazar los link marcados como spam?</param>
+ <returns></returns>
+</member>
+<member name="M:MWBot.net.WikiBot.Page.SavePage(System.String,System.String,System.Boolean,System.Boolean,System.Boolean,System.Int32@)">
+ <summary>
+ Guarda la página en la wiki. Si la página no existe, la crea.
+ </summary>
+ <param name="pageContent">Texto (wikicódigo) de la página</param>
+ <param name="EditSummary">Resumen de la edición</param>
+ <param name="IsMinor">¿Marcar como menor?</param>
+ <returns></returns>
+</member>
+<member name="M:MWBot.net.WikiBot.Page.CheckAndSave(System.String,System.String,System.Boolean,System.Boolean,System.Boolean)">
+ <summary>
+ Guarda la página en la wiki. Comprueba si la página tiene la plantilla {{nobots}}. Si la página no existe, la crea.
+ </summary>
+ <param name="pageContent">Texto (wikicódigo) de la página</param>
+ <param name="Summary">Resumen de la edición</param>
+ <param name="Minor">¿Marcar como menor?</param>
+ <returns></returns>
+</member>
+<member name="M:MWBot.net.WikiBot.Page.CheckAndSave(System.String,System.String,System.Boolean,System.Boolean)">
+ <summary>
+ Guarda la página en la wiki. Comprueba si la página tiene la plantilla {{nobots}}. Si la página no existe, la crea.
+ </summary>
+ <param name="pageContent">Texto (wikicódigo) de la página</param>
+ <param name="Summary">Resumen de la edición</param>
+ <param name="Minor">¿Marcar como menor?</param>
+ <returns></returns>
+</member>
+<member name="M:MWBot.net.WikiBot.Page.CheckAndSave(System.String,System.String,System.Boolean)">
+ <summary>
+ Guarda la página en la wiki. Comprueba si la página tiene la plantilla {{nobots}}. Si la página no existe, la crea.
+ </summary>
+ <param name="pageContent">Texto (wikicódigo) de la página</param>
+ <param name="Summary">Resumen de la edición</param>
+ <param name="IsMinor">¿Marcar como menor?</param>
+ <returns></returns>
+</member>
+<member name="M:MWBot.net.WikiBot.Page.CheckAndSave(System.String,System.String)">
+ <summary>
+ Guarda la página en la wiki. Comprueba si la página tiene la plantilla {{nobots}}. Si la página no existe, la crea.
+ </summary>
+ <param name="pageContent">Texto (wikicódigo) de la página</param>
+ <param name="Summary">Resumen de la edición</param>
+ <returns></returns>
+</member>
+<member name="M:MWBot.net.WikiBot.Page.CheckAndSave(System.String)">
+ <summary>
+ Guarda la página en la wiki. Comprueba si la página tiene la plantilla {{nobots}}. Si la página no existe, la crea.
+ </summary>
+ <param name="pageContent">Texto (wikicódigo) de la página</param>
+ <returns></returns>
+</member>
+<member name="M:MWBot.net.WikiBot.Page.Save(System.String,System.String,System.Boolean,System.Boolean)">
+ <summary>
+ Guarda la página en la wiki. Si la página no existe, la crea.
+ </summary>
+ <param name="pageContent">Texto (wikicódigo) de la página</param>
+ <param name="Summary">Resumen de la edición</param>
+ <param name="Minor">¿Marcar como menor?</param>
+ <param name="bot">¿Marcar como edición de bot?</param>
+ <returns></returns>
+</member>
+<member name="M:MWBot.net.WikiBot.Page.Save(System.String,System.String,System.Boolean)">
+ <summary>
+ Guarda la página en la wiki. Si la página no existe, la crea.
+ </summary>
+ <param name="pageContent">Texto (wikicódigo) de la página</param>
+ <param name="summary">Resumen de la edición</param>
+ <param name="minor">¿Marcar como menor?</param>
+ <returns></returns>
+</member>
+<member name="M:MWBot.net.WikiBot.Page.Save(System.String,System.String)">
+ <summary>
+ Guarda la página en la wiki. Si la página no existe, la crea.
+ </summary>
+ <param name="pageContent">Texto (wikicódigo) de la página</param>
+ <param name="Summary">Resumen de la edición</param>
+ <returns></returns>
+</member>
+<member name="M:MWBot.net.WikiBot.Page.Save(System.String)">
+ <summary>
+ Guarda la página en la wiki. Si la página no existe, la crea.
+ </summary>
+ <param name="pageContent">Contenido como texto (wikicódigo) de la página</param>
+ <returns></returns>
+</member>
+<member name="M:MWBot.net.WikiBot.Page.AddSectionPage(System.String,System.String,System.String,System.Boolean)">
+ <summary>
+ Añade una sección nueva a una página dada. Útil en casos como messagedelivery.
+ </summary>
+ <param name="sectionTitle">Título de la sección nueva</param>
+ <param name="sectionContent">Texto de la sección</param>
+ <param name="editSummary">Resumen de edición</param>
+ <param name="isMinor">¿Marcar como menor?</param>
+ <returns></returns>
+</member>
+<member name="M:MWBot.net.WikiBot.Page.AddSection(System.String,System.String,System.String,System.Boolean)">
+ <summary>
+ Añade una sección nueva a una página dada. Útil en casos como messagedelivery.
+ </summary>
+ <param name="sectionTitle">Título de la sección nueva</param>
+ <param name="sectionContent">Texto de la sección</param>
+ <param name="editSummary">Resumen de edición</param>
+ <param name="IsMinor">¿Marcar como menor?</param>
+ <returns></returns>
+</member>
+<member name="M:MWBot.net.WikiBot.Page.AddSection(System.String,System.String,System.String)">
+ <summary>
+ Añade una sección nueva a una página dada. Útil en casos como messagedelivery.
+ </summary>
+ <param name="sectionTitle">Título de la sección nueva</param>
+ <param name="sectionContent">Texto de la sección</param>
+ <param name="editSummary">Resumen de edición</param>
+ <returns></returns>
+</member>
+<member name="M:MWBot.net.WikiBot.Page.AddSection(System.String,System.String)">
+ <summary>
+ Añade una sección nueva a una página dada. Útil en casos como messagedelivery.
+ </summary>
+ <param name="SectionTitle">Título de la sección nueva</param>
+ <param name="sectionContent">Texto de la sección</param>
+ <returns></returns>
+</member>
+<member name="M:MWBot.net.WikiBot.Page.BotCanEdit(System.String,System.String)">
+ <summary>
+ Función que verifica si la página puede ser editada por bots (se llama desde Save())
+ </summary>
+ <param name="pageContent">Texto de la página</param>
+ <param name="userName">Usuario que edita</param>
+ <returns></returns>
+</member>
+<member name="M:MWBot.net.WikiBot.Page.GetEditToken">
+ <summary>
+ Obtiene un Token de edición desde la API de MediaWiki
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:MWBot.net.WikiBot.Page.PageInfoData(System.String)">
+ <summary>
+ Hace una solicitud a la API respecto a una página y actualiza los datos
+ </summary>
+ <param name="Pagename">Título exacto de la página</param>
+</member>
+<member name="M:MWBot.net.WikiBot.Page.PageInfoData(System.Int32)">
+ <summary>
+ Hace una solicitud a la API respecto a una página y actualiza los datos
+ </summary>
+ <param name="Revid">Revision ID de la página</param>
+</member>
+<member name="M:MWBot.net.WikiBot.Page.GetLastTimeStamp">
+ <summary>
+ Entrega la ultima marca de tiempo de la pagina.
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:MWBot.net.WikiBot.Page.GetLastEdit">
+ <summary>
+ Entrega la ultima marca de tiempo de la pagina.
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:MWBot.net.WikiBot.Page.RemoveRef(MWBot.net.WikiBot.Page,System.String)">
+ <summary>
+ Elimina una referencia que contenga una cadena exacta.
+ (No usar a menos de que se esté absolutamente seguro de lo que se hace).
+ </summary>
+ <param name="RequestedPage">Página a revisar</param>
+ <param name="RequestedRef">Texto que determina que referencia se elimina</param>
+ <returns></returns>
+</member>
+<member name="M:MWBot.net.WikiBot.Page.GetPageViewsAvg(System.String)">
+ <summary>
+ Retorna el promedio de los últimos dos meses de la página entregada (solo para páginas wikimedia)
+ El proyecto se deduce extrayendo el texto entre "https://" y ".org"
+ </summary>
+ <param name="Page">Nombre exacto de la página a evaluar</param>
+ <returns></returns>
+</member>
+<member name="P:MWBot.net.WikiBot.Template.Name">
+ <summary>
+ Nombre de la plantilla (con el espacio de nombres).
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:MWBot.net.WikiBot.Template.Text">
+ <summary>
+ Texto de la plantilla.
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:MWBot.net.WikiBot.Template.#ctor(System.String,System.Boolean)">
+ <summary>
+ Crea una nueva plantilla. Si es una nueva se considera el texto como el título, de lo contrario se considera como el contenido de la plantilla y se extrae de este los parámetros.
+ El texto de ser inválido, genera una plantilla vacía ("{{}}").
+ </summary>
+ <param name="Text">Texto a evaluar.</param>
+ <param name="newTemplate">¿Es una plantilla nueva?</param>
+</member>
+<member name="M:MWBot.net.WikiBot.Template.#ctor(System.String,System.Collections.Generic.List{System.Tuple{System.String,System.String}})">
+ <summary>
+ Crea una nueva plantilla con los parámetros indicados.
+ </summary>
+ <param name="Templatename">Nombre de la plantilla.</param>
+ <param name="templateparams">Parámetros de la plantilla.</param>
+</member>
+<member name="M:MWBot.net.WikiBot.Template.#ctor">
+ <summary>
+ Crea una nueva plantilla vacía ("{{}}")
+ </summary>
+</member>
+<member name="M:MWBot.net.WikiBot.Template.MakeSimpleTemplateText(System.String)">
+ <summary>
+ Crea el texto de una plantilla simple, que solo contiene el nombre de la misma.
+ </summary>
+ <param name="tempname">Nombre de la plantilla</param>
+ <returns></returns>
+</member>
+<member name="M:MWBot.net.WikiBot.Template.CreateTemplatetext(System.String,System.Collections.Generic.List{System.Tuple{System.String,System.String}},System.Boolean)">
+ <summary>
+ Genera la plantilla a partir de los parámetros y el nombre de la misma.
+ </summary>
+ <param name="templatename"></param>
+ <param name="templateparams"></param>
+ <param name="newlines"></param>
+ <returns></returns>
+</member>
+<member name="M:MWBot.net.WikiBot.Template.MakeTemplateText(System.String,System.Collections.Generic.List{System.Tuple{System.String,System.String}})">
+ <summary>
+ Genera el texto de la plantilla a partir del nombre y parámetros indicados.
+ </summary>
+ <param name="tempname">Nombre de la plantilla.</param>
+ <param name="tempparams">Parámetros de la plantilla.</param>
+ <returns></returns>
+</member>
+<member name="M:MWBot.net.WikiBot.Template.GetTemplateOfText(System.String)">
+ <summary>
+ Inicializa la plantilla extrayendo los datos de un texto que debería ser en formato de plantilla.
+ </summary>
+ <param name="templatetext"></param>
+</member>
+<member name="M:MWBot.net.WikiBot.Template.GetTemplates(System.Collections.Generic.List{System.String})">
+ <summary>
+ Retorna una lista de plantillas si se le entrega como parámetro un array de tipo string con texto en formato válido de plantilla.
+ Si uno de los items del array no tiene formato válido, entregará una plantilla vacia en su lugar ("{{}}").
+ </summary>
+ <param name="templatearray"></param>
+ <returns></returns>
+</member>
+<member name="M:MWBot.net.WikiBot.Template.GetTemplates(MWBot.net.WikiBot.Page)">
+ <summary>
+ Retorna todas las plantillas que encuentre en una pagina, de no haber entregará una lista vacia.
+ </summary>
+ <param name="WikiPage"></param>
+ <returns></returns>
+</member>
+<member name="M:MWBot.net.WikiBot.Template.GetTemplates(System.String)">
+ <summary>
+ Retorna todas las plantillas que encuentre en un texto, de no haber entregará una lista vacia.
+ </summary>
+ <param name="text">Texto a evaluar</param>
+ <returns></returns>
+</member>
+<member name="M:MWBot.net.WikiBot.Template.GetTemplateTextArray(System.String)">
+ <summary>
+ Retorna un array de string con todas las plantillas contenidas en un texto.
+ Pueden repetirse si hay plantillas que contienen otras en su interior.
+ </summary>
+ <param name="text"></param>
+ <returns></returns>
+</member>
+<member name="M:MWBot.net.WikiBot.Template.OptimizeTemplate">
+ <summary>
+ Elimina los parámetros en blanco de la plantilla.
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:MWBot.net.WikiBot.WikiUser.GetLastEditTimestampUser(System.String)">
+ <summary>
+ Entrega como Date la fecha de la última edición del usuario entregado como parámetro.
+ </summary>
+ <param name="user">Nombre exacto del usuario</param>
+ <returns></returns>
+</member>
+<member name="T:MWBot.net.MaxRetriesExeption">
+ <summary>
+ Excepción que se produce cuando se alcanza un número máximo de reintentos.
+ </summary>
+</member>
+<member name="T:MWBot.net.Messages">
+<summary>
+  Clase de recurso fuertemente tipado, para buscar cadenas traducidas, etc.
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.ResourceManager">
+<summary>
+  Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.Culture">
+<summary>
+  Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
+  búsquedas de recursos mediante esta clase de recurso fuertemente tipado.
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.AbuseFilter">
+<summary>
+  Busca una cadena traducida similar a Filtro de abusos desencadenado en &apos;{0}&apos;..
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.BotEngine">
+<summary>
+  Busca una cadena traducida similar a MWBot.net.
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.CheckingUser">
+<summary>
+  Busca una cadena traducida similar a Verificando al usuario &apos;{0}&apos;..
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.CheckingUsers">
+<summary>
+  Busca una cadena traducida similar a Comprobando usuarios..
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.ConfigError">
+<summary>
+  Busca una cadena traducida similar a Archivo de configuraciones corrupto..
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.DefaultSumm">
+<summary>
+  Busca una cadena traducida similar a Edición de bot..
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.DoneXPagesReturned">
+<summary>
+  Busca una cadena traducida similar a Hecho, retornando {0} páginas..
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.EditConflict">
+<summary>
+  Busca una cadena traducida similar a Conflicto de edición en &apos;{0}&apos;..
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.FileCreateErr">
+<summary>
+  Busca una cadena traducida similar a Error al crear el archivo &apos;{0}&apos;..
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.FileSaveErr">
+<summary>
+  Busca una cadena traducida similar a Error al guardar el archivo &apos;{0}&apos;..
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.GetLastrevIDs">
+<summary>
+  Busca una cadena traducida similar a Obteniendo el ultimo revid de {0} páginas..
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.GetPageExtract">
+<summary>
+  Busca una cadena traducida similar a Cargando el extracto de la página &apos;{0}&apos;..
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.GetPagesExtract">
+<summary>
+  Busca una cadena traducida similar a Cargando {0} extractos de páginas..
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.GreetingMsg">
+<summary>
+  Busca una cadena traducida similar a ==================== MWBot.net {0} ====================.
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.InvalidUrl">
+<summary>
+  Busca una cadena traducida similar a La url ingresada es inválida.
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.InvalidUser">
+<summary>
+  Busca una cadena traducida similar a El usuario &apos;{0}&apos; es inválido..
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.LoadingConfig">
+<summary>
+  Busca una cadena traducida similar a Cargando configuraciones.
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.LoadingOres">
+<summary>
+  Busca una cadena traducida similar a Cargando puntaje ORES del revid {0}..
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.LoginError">
+<summary>
+  Busca una cadena traducida similar a Falló el inicio de sesión.
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.LoginID">
+<summary>
+  Busca una cadena traducida similar a ID de usuario: .
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.LoginResult">
+<summary>
+  Busca una cadena traducida similar a Resultado: .
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.MaxRetryCount">
+<summary>
+  Busca una cadena traducida similar a Máximo número de reintentos alcanzado en &apos;{0}&apos;..
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.NetworkError">
+<summary>
+  Busca una cadena traducida similar a Error de conexión: .
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.NewArchiveBoxTemplate">
+<summary>
+  Busca una cadena traducida similar a Nombre de la página de la plantilla de &apos;caja de archivos&apos; (con el espacio de nombres):.
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.NewArchiveMessageTemplate">
+<summary>
+  Busca una cadena traducida similar a Nombre de la página de aviso de archivo (con el espacio de nombres):.
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.NewAutoArchiveDoNotArchivePageName">
+<summary>
+  Busca una cadena traducida similar a Nombre de la página de la plantilla &apos;no archivar&apos; (con el espacio de nombres):.
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.NewAutoArchiveProgrammedArchivePageName">
+<summary>
+  Busca una cadena traducida similar a Nombre de la página de la plantilla de autoarchivado programado (con el espacio de nombres):.
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.NewAutoArchiveTemplatePagename">
+<summary>
+  Busca una cadena traducida similar a Nombre de la página de la plantilla de autoarchivado (con el espacio de nombres):.
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.NewAutoSignatureTemplatePageName">
+<summary>
+  Busca una cadena traducida similar a Nombre de la página de la plantilla de autofirmado (con el espacio de nombres):.
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.NewBotName">
+<summary>
+  Busca una cadena traducida similar a Nombre del bot: .
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.NewBotPassword">
+<summary>
+  Busca una cadena traducida similar a Contraseña de BOT en la Wiki: .
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.NewConfigFileError">
+<summary>
+  Busca una cadena traducida similar a Error al crear un nuevo archivo de configuraciones.
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.NewConfigMessage">
+<summary>
+  Busca una cadena traducida similar a El archivo de configuraciones no existe, por favor completa los siguientes campos o cierra el programa y crea el archivo manualmente..
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.NewUserName">
+<summary>
+  Busca una cadena traducida similar a Nombre de usuario en la Wiki: .
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.NewWikiMainApiUrl">
+<summary>
+  Busca una cadena traducida similar a URL de la API de la Wiki: .
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.NewWikiMainUrl">
+<summary>
+  Busca una cadena traducida similar a URL principal de la Wiki: .
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.NoBots">
+<summary>
+  Busca una cadena traducida similar a Este bot no puede editar en &apos;{0}&apos;..
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.NoChanges">
+<summary>
+  Busca una cadena traducida similar a No hay cambios por guardar en &apos;{0}&apos;..
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.NoConfigFile">
+<summary>
+  Busca una cadena traducida similar a El archivo de configuraciones no existe.
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.NoDateMatch">
+<summary>
+  Busca una cadena traducida similar a No se ha encontrado texto con formato de fecha..
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.OresFailed">
+<summary>
+  Busca una cadena traducida similar a No se pudo obtener el puntaje ORES del revid {0}. EX: {1}.
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.OresLoaded">
+<summary>
+  Busca una cadena traducida similar a Puntaje ORES del revid {0}:  DMG:{1} /GF:{2}.
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.OresQueryError">
+<summary>
+  Busca una cadena traducida similar a Error de servidor en la query del puntaje ORES desde el revid {0} (diff inválido?).
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.OresQueryEx">
+<summary>
+  Busca una cadena traducida similar a Excepción al obtener el puntaje ORES del revid {0}. EX: {1}.
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.OresQueryResult">
+<summary>
+  Busca una cadena traducida similar a Query del puntaje ORES del revid {0} completada. GF: {1} DMG: {2}.
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.PageDoesNotExist">
+<summary>
+  Busca una cadena traducida similar a Cuidado: La página &apos;{0}&apos; no existe aún..
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.PageLoaded">
+<summary>
+  Busca una cadena traducida similar a Página &apos;{0}&apos; cargada..
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.PageNoThumb">
+<summary>
+  Busca una cadena traducida similar a Aviso: La página &apos;{0}&apos; no posee una imagen de previsualización..
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.POSTEX">
+<summary>
+  Busca una cadena traducida similar a Error en la solicitud POST en &apos;{0}&apos;. EX: {1}.
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.PressKey">
+<summary>
+  Busca una cadena traducida similar a Presione cualquier tecla para salir.
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.PRevLoaded">
+<summary>
+  Busca una cadena traducida similar a Página con el revid {0} cargada..
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.Reason">
+<summary>
+  Busca una cadena traducida similar a Motivo: .
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.RemovingRefs">
+<summary>
+  Busca una cadena traducida similar a Eliminando todas las referencias que contengan &apos;{0}&apos;..
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.RequestingToken">
+<summary>
+  Busca una cadena traducida similar a Obteniendo token.
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.SaveConfigError">
+<summary>
+  Busca una cadena traducida similar a Error al guardar las configuraciones..
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.SigninIn">
+<summary>
+  Busca una cadena traducida similar a Iniciando sesión.
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.SpamBlackList">
+<summary>
+  Busca una cadena traducida similar a Filtro de abusos anti spam desencadenado en &apos;{0}&apos;..
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.SuccessfulEdit">
+<summary>
+  Busca una cadena traducida similar a Edición en &apos;{0}&apos; exitosa..
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.SuccessfulOperation">
+<summary>
+  Busca una cadena traducida similar a Operación exitosa..
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.TextReplaced">
+<summary>
+  Busca una cadena traducida similar a Bot: Reemplazando &apos;{0}&apos; con &apos;{1}&apos; {2}..
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.TokenObtained">
+<summary>
+  Busca una cadena traducida similar a Token obtenido.
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.TryingToSave">
+<summary>
+  Busca una cadena traducida similar a Intentando guardar &apos;{0}&apos;..
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.UnexpectedEX">
+<summary>
+  Busca una cadena traducida similar a Excepción inesperada: {0}.
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.UnsuccessfulOperation">
+<summary>
+  Busca una cadena traducida similar a La operación ha fallado..
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.UserBlocked">
+<summary>
+  Busca una cadena traducida similar a El usuario {0} está bloqueado..
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.UserInactive">
+<summary>
+  Busca una cadena traducida similar a El usuario {0} está inactivo..
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.UserInexistent">
+<summary>
+  Busca una cadena traducida similar a El usuario {0} no existe..
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.UserJustEdited">
+<summary>
+  Busca una cadena traducida similar a {0} acaba de editar..
+</summary>
+</member>
+<member name="P:MWBot.net.Messages.UserName">
+<summary>
+  Busca una cadena traducida similar a Nombre de usuario: .
+</summary>
+</member>
+<member name="T:MWBot.net.SStrings">
+<summary>
+  Clase de recurso fuertemente tipado, para buscar cadenas traducidas, etc.
+</summary>
+</member>
+<member name="P:MWBot.net.SStrings.ResourceManager">
+<summary>
+  Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
+</summary>
+</member>
+<member name="P:MWBot.net.SStrings.Culture">
+<summary>
+  Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
+  búsquedas de recursos mediante esta clase de recurso fuertemente tipado.
+</summary>
+</member>
+<member name="P:MWBot.net.SStrings.AddThread">
+<summary>
+  Busca una cadena traducida similar a format=json&amp;action=edit{0}&amp;title={1}&amp;summary={2}&amp;section=new&amp;sectiontitle={3}&amp;text={4}&amp;token={5}.
+</summary>
+</member>
+<member name="P:MWBot.net.SStrings.ArchiveDestiny">
+<summary>
+  Busca una cadena traducida similar a Destino.
+</summary>
+</member>
+<member name="P:MWBot.net.SStrings.ArchiveIndex">
+<summary>
+  Busca una cadena traducida similar a /Archivo-00-índice.
+</summary>
+</member>
+<member name="P:MWBot.net.SStrings.AssertBotData">
+<summary>
+  Busca una cadena traducida similar a action=query&amp;assert=bot&amp;format=json.
+</summary>
+</member>
+<member name="P:MWBot.net.SStrings.AssertBotFailed">
+<summary>
+  Busca una cadena traducida similar a assertbotfailed.
+</summary>
+</member>
+<member name="P:MWBot.net.SStrings.AssertUserData">
+<summary>
+  Busca una cadena traducida similar a action=query&amp;assert=user&amp;format=json.
+</summary>
+</member>
+<member name="P:MWBot.net.SStrings.AssertUserFailed">
+<summary>
+  Busca una cadena traducida similar a assertuserfailed.
+</summary>
+</member>
+<member name="P:MWBot.net.SStrings.AutoSignatureTemplateInsideRegex">
+<summary>
+  Busca una cadena traducida similar a  *[Ff]irma automática.
+</summary>
+</member>
+<member name="P:MWBot.net.SStrings.BoxMessage">
+<summary>
+  Busca una cadena traducida similar a &lt;!-- Caja generada por PeriodiBOT, puedes editarla cuanto quieras, pero los nuevos enlaces siempre se añadirán al final. --&gt;.
+</summary>
+</member>
+<member name="P:MWBot.net.SStrings.ConfigTemplate">
+<summary>
+  Busca una cadena traducida similar a ======================CONFIG======================
+BOTName=&quot;{0}&quot;
+WPUserName=&quot;{1}&quot;
+WPBotPassword=&quot;{2}&quot;
+PageURL=&quot;{3}&quot;
+ApiURL=&quot;{4}&quot;
+AutoArchiveTemplatePagename=&quot;{5}&quot;
+AutoSignatureTemplatePageName=&quot;{6}&quot;
+AutoArchiveProgrammedArchivePageName=&quot;{7}&quot;
+AutoArchiveDoNotArchivePageName=&quot;{8}&quot;
+ArchiveBoxTemplate=&quot;{9}&quot;
+ArchiveMessageTemplate=&quot;{10}&quot;.
+</summary>
+</member>
+<member name="P:MWBot.net.SStrings.DaysTokeep">
+<summary>
+  Busca una cadena traducida similar a Días a mantener.
+</summary>
+</member>
+<member name="P:MWBot.net.SStrings.DidYouKnowPageName">
+<summary>
+  Busca una cadena traducida similar a PeriodiBOT/Sabias que.
+</summary>
+</member>
+<member name="P:MWBot.net.SStrings.EditToken">
+<summary>
+  Busca una cadena traducida similar a format=json&amp;action=query&amp;meta=tokens.
+</summary>
+</member>
+<member name="P:MWBot.net.SStrings.GetDiffQuery">
+<summary>
+  Busca una cadena traducida similar a format=json&amp;action=compare&amp;fromrev={0}&amp;torev={1}.
+</summary>
+</member>
+<member name="P:MWBot.net.SStrings.GetLastRevIds">
+<summary>
+  Busca una cadena traducida similar a format=json&amp;action=query&amp;prop=revisions&amp;titles=.
+</summary>
+</member>
+<member name="P:MWBot.net.SStrings.GetLastTimestamp">
+<summary>
+  Busca una cadena traducida similar a format=json&amp;maxlag=5&amp;action=query&amp;prop=revisions&amp;rvprop=timestamp&amp;titles={0}.
+</summary>
+</member>
+<member name="P:MWBot.net.SStrings.GetOresScore">
+<summary>
+  Busca una cadena traducida similar a https://ores.wikimedia.org/v3/scores/eswiki/?models=damaging|goodfaith&amp;format=json&amp;revids=.
+</summary>
+</member>
+<member name="P:MWBot.net.SStrings.GetPageInclusions">
+<summary>
+  Busca una cadena traducida similar a format=json&amp;action=query&amp;list=embeddedin&amp;eilimit=1000&amp;eititle=.
+</summary>
+</member>
+<member name="P:MWBot.net.SStrings.GetPagesExtract">
+<summary>
+  Busca una cadena traducida similar a format=json&amp;action=query&amp;prop=extracts&amp;exintro=&amp;explaintext=&amp;titles=.
+</summary>
+</member>
+<member name="P:MWBot.net.SStrings.GetPagesImage">
+<summary>
+  Busca una cadena traducida similar a format=json&amp;action=query&amp;formatversion=2&amp;prop=pageimages&amp;titles=.
+</summary>
+</member>
+<member name="P:MWBot.net.SStrings.GetPageViews">
+<summary>
+  Busca una cadena traducida similar a https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/{0}/all-access/all-agents/{1}/daily/{2}{4}{6}00/{3}{5}{7}00.
+</summary>
+</member>
+<member name="P:MWBot.net.SStrings.GetWikiToken">
+<summary>
+  Busca una cadena traducida similar a format=json&amp;action=query&amp;meta=tokens&amp;type=login.
+</summary>
+</member>
+<member name="P:MWBot.net.SStrings.InfMedMsg">
+<summary>
+  Busca una cadena traducida similar a ¡Hola! Este mensaje es un aviso automático a todos los miembros activos de [[Wikipedia:Mediación informal/Participantes/Lista|Mediación informal]] para informar de una [[Wikipedia:Mediación informal/Solicitudes|nueva solicitud]]. Por favor, considera participar en la discusión.
+
+¡Gracias por tu atención! ~~~~.
+</summary>
+</member>
+<member name="P:MWBot.net.SStrings.InfMedPage">
+<summary>
+  Busca una cadena traducida similar a Wikipedia:Mediación informal/Solicitudes.
+</summary>
+</member>
+<member name="P:MWBot.net.SStrings.InfMedSettingsName">
+<summary>
+  Busca una cadena traducida similar a InformalMediationLastThreadCount.
+</summary>
+</member>
+<member name="P:MWBot.net.SStrings.InfMedSumm">
+<summary>
+  Busca una cadena traducida similar a (Bot) Aviso automático de una nueva solicitud en [[Wikipedia:Mediación informal/Participantes/Lista|Mediación informal]]..
+</summary>
+</member>
+<member name="P:MWBot.net.SStrings.InfMedTitle">
+<summary>
+  Busca una cadena traducida similar a Atención en [[Wikipedia:Mediación informal/Solicitudes|Mediación informal]].
+</summary>
+</member>
+<member name="P:MWBot.net.SStrings.InformalMediationMembers">
+<summary>
+  Busca una cadena traducida similar a Wikipedia:Mediación informal/Participantes/Lista.
+</summary>
+</member>
+<member name="P:MWBot.net.SStrings.IrcSource">
+<summary>
+  Busca una cadena traducida similar a IRC.
+</summary>
+</member>
+<member name="P:MWBot.net.SStrings.KeepFileBox">
+<summary>
+  Busca una cadena traducida similar a MantenerCajaDeArchivos.
+</summary>
+</member>
+<member name="P:MWBot.net.SStrings.LastPSignature">
+<summary>
+  Busca una cadena traducida similar a FirmaEnÚltimoPárrafo.
+</summary>
+</member>
+<member name="P:MWBot.net.SStrings.LastUserEditQuery">
+<summary>
+  Busca una cadena traducida similar a action=query&amp;list=usercontribs&amp;uclimit=1&amp;format=json&amp;ucuser=.
+</summary>
+</member>
+<member name="P:MWBot.net.SStrings.LoadUserQuery">
+<summary>
+  Busca una cadena traducida similar a action=query&amp;format=json&amp;list=users&amp;usprop=blockinfo|groups|editcount|registration|gender&amp;ususers=.
+</summary>
+</member>
+<member name="P:MWBot.net.SStrings.LocalSource">
+<summary>
+  Busca una cadena traducida similar a LOCAL.
+</summary>
+</member>
+<member name="P:MWBot.net.SStrings.Login">
+<summary>
+  Busca una cadena traducida similar a format=json&amp;action=login&amp;lgname={0}&amp;lgpassword={1}&amp;lgdomain=&amp;lgtoken={2}.
+</summary>
+</member>
+<member name="P:MWBot.net.SStrings.LongestThreads">
+<summary>
+  Busca una cadena traducida similar a Usuario:PeriodiBOT/Curiosidades/Hilos más largos en la historia del café.
+</summary>
+</member>
+<member name="P:MWBot.net.SStrings.MostRecentSignature">
+<summary>
+  Busca una cadena traducida similar a FirmaMásRecienteEnLaSección.
+</summary>
+</member>
+<member name="P:MWBot.net.SStrings.OresScoresApiQueryUrl">
+<summary>
+  Busca una cadena traducida similar a https://ores.wikimedia.org/v3/scores/eswiki/?models=damaging|goodfaith&amp;format=json&amp;revids=.
+</summary>
+</member>
+<member name="P:MWBot.net.SStrings.PageInfo">
+<summary>
+  Busca una cadena traducida similar a format=json&amp;maxlag=5&amp;action=query&amp;prop=revisions|pageimages|categories|extracts&amp;rvprop=user|timestamp|size|content|ids&amp;exlimit=1&amp;explaintext&amp;exintro&amp;titles={0}.
+</summary>
+</member>
+<member name="P:MWBot.net.SStrings.PageInfoRevid">
+<summary>
+  Busca una cadena traducida similar a format=json&amp;maxlag=5&amp;action=query&amp;prop=revisions|pageimages|categories|extracts&amp;rvprop=user|timestamp|size|content|ids&amp;exlimit=1&amp;explaintext&amp;exintro&amp;revids={0}.
+</summary>
+</member>
+<member name="P:MWBot.net.SStrings.PrefixSearchQuery">
+<summary>
+  Busca una cadena traducida similar a format=json&amp;action=query&amp;pslimit=max&amp;list=prefixsearch&amp;pssearch=.
+</summary>
+</member>
+<member name="P:MWBot.net.SStrings.ResumePageName">
+<summary>
+  Busca una cadena traducida similar a Usuario:PeriodiBOT/Resumen página.
+</summary>
+</member>
+<member name="P:MWBot.net.SStrings.SavePage">
+<summary>
+  Busca una cadena traducida similar a format=json&amp;action=edit{0}&amp;title={1}&amp;summary={2}&amp;text={3}&amp;token={4}.
+</summary>
+</member>
+<member name="P:MWBot.net.SStrings.Search">
+<summary>
+  Busca una cadena traducida similar a format=json&amp;action=query&amp;list=search&amp;utf8=1&amp;srsearch=.
+</summary>
+</member>
+<member name="P:MWBot.net.SStrings.SearchForUser">
+<summary>
+  Busca una cadena traducida similar a format=json&amp;action=query&amp;list=search&amp;utf8=1&amp;srnamespace=2&amp;srsearch=.
+</summary>
+</member>
+<member name="P:MWBot.net.SStrings.Strategy">
+<summary>
+  Busca una cadena traducida similar a Estrategia.
+</summary>
+</member>
+<member name="P:MWBot.net.SStrings.TopicGroupsPage">
+<summary>
+  Busca una cadena traducida similar a Wikipedia:Café por tema/Grupos.
+</summary>
+</member>
+<member name="P:MWBot.net.SStrings.TopicPageName">
+<summary>
+  Busca una cadena traducida similar a Wikipedia:Café por tema.
+</summary>
+</member>
+<member name="P:MWBot.net.SStrings.TopicTemplate">
+<summary>
+  Busca una cadena traducida similar a Plantilla:Tema.
+</summary>
+</member>
+<member name="P:MWBot.net.SStrings.UserFirstEditQuery">
+<summary>
+  Busca una cadena traducida similar a format=json&amp;action=query&amp;uclimit=1&amp;ucdir=newer&amp;list=usercontribs&amp;ucuser=.
+</summary>
+</member>
+<member name="P:MWBot.net.SStrings.WarnArchiving">
+<summary>
+  Busca una cadena traducida similar a Avisar al archivar.
+</summary>
+</member>
+<member name="P:MWBot.net.SStrings.YES">
+<summary>
+  Busca una cadena traducida similar a si.
+</summary>
+</member>
+<member name="P:MWBot.net.SStrings.YES2">
+<summary>
+  Busca una cadena traducida similar a sí.
+</summary>
+</member>
+<member name="P:MWBot.net.TaskInfo.Name">
+ <summary>
+ Nombre de la tarea.
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:MWBot.net.TaskInfo.ThreadType">
+ <summary>
+ Tipo de tarea.
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:MWBot.net.TaskInfo.Author">
+ <summary>
+ Autor de la tarea.
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:MWBot.net.TaskInfo.Interval">
+ <summary>
+ Intervalo de repetición en milisegundos.
+ </summary>
+</member>
+<member name="P:MWBot.net.TaskInfo.ScheduledTime">
+ <summary>
+ Hora a la que está programada la ejecución de la tarea.
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:MWBot.net.TaskInfo.Scheduledtask">
+ <summary>
+ Indica si la tarea está agendada para su ejecución a una hora o es periódica.
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:MWBot.net.TaskInfo.Infinite">
+ <summary>
+ Indica si una tarea se ejecuta infinitamente.
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:MWBot.net.TaskInfo.Status">
+ <summary>
+ Indica el estado de la tarea.
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:MWBot.net.TaskInfo.Running">
+ <summary>
+ Indica si la tarea está en ejecución.
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:MWBot.net.TaskInfo.Task">
+ <summary>
+ Función que ejecutará la tarea.
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:MWBot.net.TaskInfo.Canceled">
+ <summary>
+ Indica si la tarea está en estado de cancelación.
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:MWBot.net.TaskInfo.Paused">
+ <summary>
+ Indica ssi la tarea está pausada.
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:MWBot.net.TaskInfo.Runcount">
+ <summary>
+ Indica cuantes veces se ha ejecutado la función en la tarea.
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:MWBot.net.TaskInfo.QueueData">
+ <summary>
+ Datos a pasar a la tarea.
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:MWBot.net.TaskInfo.ExCount">
+ <summary>
+ Indica cuantas excepciones ha lanzado la función en la tarea.
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:MWBot.net.TaskInfo.Critical">
+ <summary>
+ Indica si la tarea es críctica. Una tarea crítica no se puede pausar.
+ </summary>
+ <returns></returns>
+</member>
+</members>
+</doc>
