@@ -77,7 +77,12 @@ namespace DailyRes.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;!DOCTYPE html&gt;
+        ///   Looks up a localized string similar to &lt;meta http-equiv=&quot;Cache-Control&quot; content=&quot;no-cache, no-store, must-revalidate&quot; /&gt;
+        ///
+        ///&lt;meta http-equiv=&quot;Pragma&quot; content=&quot;no-cache&quot; /&gt;
+        ///
+        ///&lt;meta http-equiv=&quot;Expires&quot; content=&quot;0&quot; /&gt;
+        ///&lt;!DOCTYPE html&gt;
         ///&lt;html&gt;
         ///&lt;head&gt;
         ///&lt;script&gt;

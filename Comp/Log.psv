@@ -1,0 +1,32 @@
+16/03/2019 19:43:52|Could not find file 'E:\Users\MarioFinale\Documents\GitHub\Comp\Log.psv'.|SaveData|Utils|EX
+16/03/2019 19:43:52|Cargando configuraciones|LoadConfig||LOG
+16/03/2019 19:43:52|Iniciando sesión|LOCAL||LOG
+16/03/2019 19:43:52|Obteniendo token|LOCAL||LOG
+16/03/2019 19:43:59|Token obtenido|LOCAL||LOG
+16/03/2019 19:44:02|Resultado: Success|LOCAL||LOG
+16/03/2019 19:44:02|ID de usuario: 4597225|LOCAL||LOG
+16/03/2019 19:44:02|Nombre de usuario: PeriodiBOT|LOCAL||LOG
+16/03/2019 19:44:02|Cargando operadores.|LoadConfig||LOG
+16/03/2019 19:44:03|Autoarchivando 'Usuario discusión:MarioFinale'.|AutoArchive|PeriodiBOT|LOG
+16-03-2019 20:34:27|Cargando configuraciones|LoadConfig||LOG
+16-03-2019 20:34:28|Iniciando sesión|LOCAL||LOG
+16-03-2019 20:34:28|Obteniendo token|LOCAL||LOG
+16-03-2019 20:34:29|Token obtenido|LOCAL||LOG
+16-03-2019 20:34:30|Resultado: Success|LOCAL||LOG
+16-03-2019 20:34:30|ID de usuario: 4597225|LOCAL||LOG
+16-03-2019 20:34:30|Nombre de usuario: PeriodiBOT|LOCAL||LOG
+16-03-2019 20:34:30|Generar efemérides 20190316|GenEfemerides||LOG
+16-03-2019 20:34:31|Faltan recursos en /Res|GenEfemerides||LOG
+16-03-2019 20:34:31|Generar efemérides 20190317|GenEfemerides||LOG
+16-03-2019 20:34:31|Faltan recursos en /Res|GenEfemerides||LOG
+16-03-2019 20:34:31|Generar efemérides 20190318|GenEfemerides||LOG
+16-03-2019 20:34:32|Faltan recursos en /Res|GenEfemerides||LOG
+16-03-2019 20:34:32|Generar efemérides 20190319|GenEfemerides||LOG
+16-03-2019 20:34:32|Faltan recursos en /Res|GenEfemerides||LOG
+16-03-2019 20:34:32|Generar efemérides 20190320|GenEfemerides||LOG
+16-03-2019 20:34:33|Faltan recursos en /Res|GenEfemerides||LOG
+16-03-2019 20:34:33|Generar efemérides 20190321|GenEfemerides||LOG
+16-03-2019 20:34:33|Faltan recursos en /Res|GenEfemerides||LOG
+16-03-2019 20:34:33|Generar efemérides 20190322|GenEfemerides||LOG
+16-03-2019 20:34:33|The remote server returned an error: (404) Not Found.|GetResponse||EX
+16-03-2019 20:34:33|Efemérides no revisadas|GenEfemerides||LOG

@@ -1,0 +1,864 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Utils
+</name>
+</assembly>
+<members>
+<member name="T:Utils.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:Utils.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:Utils.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="T:Utils.Messages">
+<summary>
+  Clase de recurso fuertemente tipado, para buscar cadenas traducidas, etc.
+</summary>
+</member>
+<member name="P:Utils.Messages.ResourceManager">
+<summary>
+  Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
+</summary>
+</member>
+<member name="P:Utils.Messages.Culture">
+<summary>
+  Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
+  búsquedas de recursos mediante esta clase de recurso fuertemente tipado.
+</summary>
+</member>
+<member name="P:Utils.Messages.AbuseFilter">
+<summary>
+  Busca una cadena traducida similar a Filtro de abusos desencadenado en &apos;{0}&apos;..
+</summary>
+</member>
+<member name="P:Utils.Messages.BotEngine">
+<summary>
+  Busca una cadena traducida similar a MWBot.net.
+</summary>
+</member>
+<member name="P:Utils.Messages.CheckingUser">
+<summary>
+  Busca una cadena traducida similar a Verificando al usuario &apos;{0}&apos;..
+</summary>
+</member>
+<member name="P:Utils.Messages.CheckingUsers">
+<summary>
+  Busca una cadena traducida similar a Comprobando usuarios..
+</summary>
+</member>
+<member name="P:Utils.Messages.ConfigError">
+<summary>
+  Busca una cadena traducida similar a Archivo de configuraciones corrupto..
+</summary>
+</member>
+<member name="P:Utils.Messages.DefaultSumm">
+<summary>
+  Busca una cadena traducida similar a Edición de bot..
+</summary>
+</member>
+<member name="P:Utils.Messages.DoneXPagesReturned">
+<summary>
+  Busca una cadena traducida similar a Hecho, retornando {0} páginas..
+</summary>
+</member>
+<member name="P:Utils.Messages.EditConflict">
+<summary>
+  Busca una cadena traducida similar a Conflicto de edición en &apos;{0}&apos;..
+</summary>
+</member>
+<member name="P:Utils.Messages.FileCreateErr">
+<summary>
+  Busca una cadena traducida similar a Error al crear el archivo &apos;{0}&apos;..
+</summary>
+</member>
+<member name="P:Utils.Messages.FileSaveErr">
+<summary>
+  Busca una cadena traducida similar a Error al guardar el archivo &apos;{0}&apos;..
+</summary>
+</member>
+<member name="P:Utils.Messages.GetLastrevIDs">
+<summary>
+  Busca una cadena traducida similar a Obteniendo el ultimo revid de {0} páginas..
+</summary>
+</member>
+<member name="P:Utils.Messages.GetPageExtract">
+<summary>
+  Busca una cadena traducida similar a Cargando el extracto de la página &apos;{0}&apos;..
+</summary>
+</member>
+<member name="P:Utils.Messages.GetPagesExtract">
+<summary>
+  Busca una cadena traducida similar a Cargando {0} extractos de páginas..
+</summary>
+</member>
+<member name="P:Utils.Messages.GreetingMsg">
+<summary>
+  Busca una cadena traducida similar a ==================== MWBot.net {0} ====================.
+</summary>
+</member>
+<member name="P:Utils.Messages.InvalidUrl">
+<summary>
+  Busca una cadena traducida similar a La url ingresada es inválida.
+</summary>
+</member>
+<member name="P:Utils.Messages.InvalidUser">
+<summary>
+  Busca una cadena traducida similar a El usuario &apos;{0}&apos; es inválido..
+</summary>
+</member>
+<member name="P:Utils.Messages.LoadingConfig">
+<summary>
+  Busca una cadena traducida similar a Cargando configuraciones.
+</summary>
+</member>
+<member name="P:Utils.Messages.LoadingOres">
+<summary>
+  Busca una cadena traducida similar a Cargando puntaje ORES del revid {0}..
+</summary>
+</member>
+<member name="P:Utils.Messages.LoginError">
+<summary>
+  Busca una cadena traducida similar a Falló el inicio de sesión.
+</summary>
+</member>
+<member name="P:Utils.Messages.LoginID">
+<summary>
+  Busca una cadena traducida similar a ID de usuario: .
+</summary>
+</member>
+<member name="P:Utils.Messages.LoginResult">
+<summary>
+  Busca una cadena traducida similar a Resultado: .
+</summary>
+</member>
+<member name="P:Utils.Messages.MaxRetryCount">
+<summary>
+  Busca una cadena traducida similar a Máximo número de reintentos alcanzado en &apos;{0}&apos;..
+</summary>
+</member>
+<member name="P:Utils.Messages.NetworkError">
+<summary>
+  Busca una cadena traducida similar a Error de conexión: .
+</summary>
+</member>
+<member name="P:Utils.Messages.NewArchiveBoxTemplate">
+<summary>
+  Busca una cadena traducida similar a Nombre de la página de la plantilla de &apos;caja de archivos&apos; (con el espacio de nombres):.
+</summary>
+</member>
+<member name="P:Utils.Messages.NewArchiveMessageTemplate">
+<summary>
+  Busca una cadena traducida similar a Nombre de la página de aviso de archivo (con el espacio de nombres):.
+</summary>
+</member>
+<member name="P:Utils.Messages.NewAutoArchiveDoNotArchivePageName">
+<summary>
+  Busca una cadena traducida similar a Nombre de la página de la plantilla &apos;no archivar&apos; (con el espacio de nombres):.
+</summary>
+</member>
+<member name="P:Utils.Messages.NewAutoArchiveProgrammedArchivePageName">
+<summary>
+  Busca una cadena traducida similar a Nombre de la página de la plantilla de autoarchivado programado (con el espacio de nombres):.
+</summary>
+</member>
+<member name="P:Utils.Messages.NewAutoArchiveTemplatePagename">
+<summary>
+  Busca una cadena traducida similar a Nombre de la página de la plantilla de autoarchivado (con el espacio de nombres):.
+</summary>
+</member>
+<member name="P:Utils.Messages.NewAutoSignatureTemplatePageName">
+<summary>
+  Busca una cadena traducida similar a Nombre de la página de la plantilla de autofirmado (con el espacio de nombres):.
+</summary>
+</member>
+<member name="P:Utils.Messages.NewBotName">
+<summary>
+  Busca una cadena traducida similar a Nombre del bot: .
+</summary>
+</member>
+<member name="P:Utils.Messages.NewBotPassword">
+<summary>
+  Busca una cadena traducida similar a Contraseña de BOT en la Wiki: .
+</summary>
+</member>
+<member name="P:Utils.Messages.NewConfigFileError">
+<summary>
+  Busca una cadena traducida similar a Error al crear un nuevo archivo de configuraciones.
+</summary>
+</member>
+<member name="P:Utils.Messages.NewConfigMessage">
+<summary>
+  Busca una cadena traducida similar a El archivo de configuraciones no existe, por favor completa los siguientes campos o cierra el programa y crea el archivo manualmente..
+</summary>
+</member>
+<member name="P:Utils.Messages.NewUserName">
+<summary>
+  Busca una cadena traducida similar a Nombre de usuario en la Wiki: .
+</summary>
+</member>
+<member name="P:Utils.Messages.NewWikiMainApiUrl">
+<summary>
+  Busca una cadena traducida similar a URL de la API de la Wiki: .
+</summary>
+</member>
+<member name="P:Utils.Messages.NewWikiMainUrl">
+<summary>
+  Busca una cadena traducida similar a URL principal de la Wiki: .
+</summary>
+</member>
+<member name="P:Utils.Messages.NoBots">
+<summary>
+  Busca una cadena traducida similar a Este bot no puede editar en &apos;{0}&apos;..
+</summary>
+</member>
+<member name="P:Utils.Messages.NoChanges">
+<summary>
+  Busca una cadena traducida similar a No hay cambios por guardar en &apos;{0}&apos;..
+</summary>
+</member>
+<member name="P:Utils.Messages.NoConfigFile">
+<summary>
+  Busca una cadena traducida similar a El archivo de configuraciones no existe.
+</summary>
+</member>
+<member name="P:Utils.Messages.NoDateMatch">
+<summary>
+  Busca una cadena traducida similar a No se ha encontrado texto con formato de fecha..
+</summary>
+</member>
+<member name="P:Utils.Messages.OresFailed">
+<summary>
+  Busca una cadena traducida similar a No se pudo obtener el puntaje ORES del revid {0}. EX: {1}.
+</summary>
+</member>
+<member name="P:Utils.Messages.OresLoaded">
+<summary>
+  Busca una cadena traducida similar a Puntaje ORES del revid {0}:  DMG:{1} /GF:{2}.
+</summary>
+</member>
+<member name="P:Utils.Messages.OresQueryError">
+<summary>
+  Busca una cadena traducida similar a Error de servidor en la query del puntaje ORES desde el revid {0} (diff inválido?).
+</summary>
+</member>
+<member name="P:Utils.Messages.OresQueryEx">
+<summary>
+  Busca una cadena traducida similar a Excepción al obtener el puntaje ORES del revid {0}. EX: {1}.
+</summary>
+</member>
+<member name="P:Utils.Messages.OresQueryResult">
+<summary>
+  Busca una cadena traducida similar a Query del puntaje ORES del revid {0} completada. GF: {1} DMG: {2}.
+</summary>
+</member>
+<member name="P:Utils.Messages.PageDoesNotExist">
+<summary>
+  Busca una cadena traducida similar a Cuidado: La página &apos;{0}&apos; no existe aún..
+</summary>
+</member>
+<member name="P:Utils.Messages.PageLoaded">
+<summary>
+  Busca una cadena traducida similar a Página &apos;{0}&apos; cargada..
+</summary>
+</member>
+<member name="P:Utils.Messages.PageNoThumb">
+<summary>
+  Busca una cadena traducida similar a Aviso: La página &apos;{0}&apos; no posee una imagen de previsualización..
+</summary>
+</member>
+<member name="P:Utils.Messages.POSTEX">
+<summary>
+  Busca una cadena traducida similar a Error en la solicitud POST en &apos;{0}&apos;. EX: {1}.
+</summary>
+</member>
+<member name="P:Utils.Messages.PressKey">
+<summary>
+  Busca una cadena traducida similar a Presione cualquier tecla para salir.
+</summary>
+</member>
+<member name="P:Utils.Messages.PRevLoaded">
+<summary>
+  Busca una cadena traducida similar a Página con el revid {0} cargada..
+</summary>
+</member>
+<member name="P:Utils.Messages.Reason">
+<summary>
+  Busca una cadena traducida similar a Motivo: .
+</summary>
+</member>
+<member name="P:Utils.Messages.RemovingRefs">
+<summary>
+  Busca una cadena traducida similar a Eliminando todas las referencias que contengan &apos;{0}&apos;..
+</summary>
+</member>
+<member name="P:Utils.Messages.RequestingToken">
+<summary>
+  Busca una cadena traducida similar a Obteniendo token.
+</summary>
+</member>
+<member name="P:Utils.Messages.SaveConfigError">
+<summary>
+  Busca una cadena traducida similar a Error al guardar las configuraciones..
+</summary>
+</member>
+<member name="P:Utils.Messages.SigninIn">
+<summary>
+  Busca una cadena traducida similar a Iniciando sesión.
+</summary>
+</member>
+<member name="P:Utils.Messages.SpamBlackList">
+<summary>
+  Busca una cadena traducida similar a Filtro de abusos anti spam desencadenado en &apos;{0}&apos;..
+</summary>
+</member>
+<member name="P:Utils.Messages.SuccessfulEdit">
+<summary>
+  Busca una cadena traducida similar a Edición en &apos;{0}&apos; exitosa..
+</summary>
+</member>
+<member name="P:Utils.Messages.SuccessfulOperation">
+<summary>
+  Busca una cadena traducida similar a Operación exitosa..
+</summary>
+</member>
+<member name="P:Utils.Messages.TextReplaced">
+<summary>
+  Busca una cadena traducida similar a Bot: Reemplazando &apos;{0}&apos; con &apos;{1}&apos; {2}..
+</summary>
+</member>
+<member name="P:Utils.Messages.TokenObtained">
+<summary>
+  Busca una cadena traducida similar a Token obtenido.
+</summary>
+</member>
+<member name="P:Utils.Messages.TryingToSave">
+<summary>
+  Busca una cadena traducida similar a Intentando guardar &apos;{0}&apos;..
+</summary>
+</member>
+<member name="P:Utils.Messages.UnexpectedEX">
+<summary>
+  Busca una cadena traducida similar a Excepción inesperada: {0}.
+</summary>
+</member>
+<member name="P:Utils.Messages.UnsuccessfulOperation">
+<summary>
+  Busca una cadena traducida similar a La operación ha fallado..
+</summary>
+</member>
+<member name="P:Utils.Messages.UserBlocked">
+<summary>
+  Busca una cadena traducida similar a El usuario {0} está bloqueado..
+</summary>
+</member>
+<member name="P:Utils.Messages.UserInactive">
+<summary>
+  Busca una cadena traducida similar a El usuario {0} está inactivo..
+</summary>
+</member>
+<member name="P:Utils.Messages.UserInexistent">
+<summary>
+  Busca una cadena traducida similar a El usuario {0} no existe..
+</summary>
+</member>
+<member name="P:Utils.Messages.UserJustEdited">
+<summary>
+  Busca una cadena traducida similar a {0} acaba de editar..
+</summary>
+</member>
+<member name="P:Utils.Messages.UserName">
+<summary>
+  Busca una cadena traducida similar a Nombre de usuario: .
+</summary>
+</member>
+<member name="F:Utils.Utils.DecimalSeparator">
+ <summary>
+ El separador de decimales varia segun SO y configuracion regional, eso puede afectar los calculos.
+ </summary>
+</member>
+<member name="M:Utils.Utils.StripTags(System.String)">
+ <summary>
+ Elimina los tags html de una cadena de texto dada.
+ </summary>
+ <param name="html">Texto a evaluar.</param>
+ <returns></returns>
+</member>
+<member name="M:Utils.Utils.Removewhitelines(System.String)">
+ <summary>
+ Elimina las líneas en blanco.
+ </summary>
+ <param name="Str">Texto a evaluar.</param>
+ <returns></returns>
+</member>
+<member name="M:Utils.Utils.RemoveExcessOfSpaces(System.String)">
+ <summary>
+ Elimina los excesos de espacios (consecutivos) en una cadena de texto.
+ </summary>
+ <param name="text">Texto a evaluar</param>
+ <returns></returns>
+</member>
+<member name="M:Utils.Utils.CountCharacter(System.String,System.Char)">
+ <summary>
+ Cuenta las veces que un carácter aparece en una cadena de texto dada.
+ </summary>
+ <param name="value">Texto a evaluar.</param>
+ <param name="ch">Carácter a buscar.</param>
+ <returns></returns>
+</member>
+<member name="M:Utils.Utils.UppercaseFirstCharacter(System.String)">
+ <summary>
+ Regresa la misma cadena de texto, pero con la primera letra mayúscula.
+ </summary>
+ <param name="val">Texto a evaluar</param>
+ <returns></returns>
+</member>
+<member name="M:Utils.Utils.PsvSafeEncode(System.String)">
+ <summary>
+ Codifica texto para ser guardado en el LOG.
+ </summary>
+ <param name="text">Texto a codificar</param>
+ <returns></returns>
+</member>
+<member name="M:Utils.Utils.PsvSafeDecode(System.String)">
+ <summary>
+ Decodifica texto guardado en el LOG.
+ </summary>
+ <param name="text">Texto a decodificar.</param>
+ <returns></returns>
+</member>
+<member name="M:Utils.Utils.NormalizeText(System.String)">
+ <summary>
+ Convierte el texto completo a minúsculas y luego coloca en mayúsculas la primera letra.
+ </summary>
+ <param name="text">Texto a evaluar.</param>
+ <returns></returns>
+</member>
+<member name="M:Utils.Utils.IsNumeric(System.String)">
+ <summary>
+ Verifica si una cadena de texto es numérica.
+ </summary>
+ <param name="number">Texto a evaluar.</param>
+ <returns></returns>
+</member>
+<member name="M:Utils.Utils.GetLastThreadByTitle(System.String[],System.String)">
+ <summary>
+ Obtiene el último hilo que coincida con el título entregado.
+ </summary>
+ <param name="threads"></param>
+ <returns></returns>
+</member>
+<member name="M:Utils.Utils.GetTitleFromThread(System.String)">
+ <summary>
+ Entrega el primer título del hilo en formato wikitexto que se le pase como parámetro. Si no tiene título entregará una cadena vacía.
+ </summary>
+ <param name="thread"></param>
+ <returns></returns>
+</member>
+<member name="M:Utils.Utils.GetTitlesFromThreads(System.String[])">
+ <summary>
+ Entrega únicamente los títulos de los hilos en formato wikitexto que se les pase como parámetro. Si uno de los parámetros no tiene título entregará una cadena vacía en su lugar.
+ </summary>
+ <param name="threads"></param>
+ <returns></returns>
+</member>
+<member name="M:Utils.Utils.GetSecondArrayAddedDiff(System.String[],System.String[])">
+ <summary>
+ Entrega los elementos en el segundo array que no estén presentes en el primero
+ </summary>
+ <param name="Arr1">Array base</param>
+ <param name="arr2">Array a comparar</param>
+ <returns></returns>
+</member>
+<member name="M:Utils.Utils.GetChangedThreadsTitle(System.String[],System.String[])">
+ <summary>
+ Entrega los titulos de los hilos en el segundo array que sean distintos al primero
+ </summary>
+ <param name="threadlist1">Array base</param>
+ <param name="threadlist2">Array a comparar</param>
+ <returns></returns>
+</member>
+<member name="M:Utils.Utils.GetChangedThreads(System.String[],System.String[])">
+ <summary>
+ Entrega los titulos de los hilos en el segundo array que sean distintos al primero. Los array deben tener los mismos elementos o se retornara un array vacio.
+ </summary>
+ <param name="threadlist1">Array base</param>
+ <param name="threadlist2">Array a comparar</param>
+ <returns></returns>
+</member>
+<member name="M:Utils.Utils.GetThreadByTitle(System.String[],System.String)">
+ <summary>
+ Entrega el último hilo en los hilos entregados que coincida con el nombre
+ </summary>
+ <param name="threads"></param>
+ <param name="title"></param>
+ <returns></returns>
+</member>
+<member name="M:Utils.Utils.StringArrayToInt(System.String[])">
+ <summary>
+ Convierte un array de tipo string numérico a integer. Si uno de los elementos no es numérico retorna 0 en su lugar.
+ </summary>
+ <param name="arr">Array a evaluar</param>
+ <returns></returns>
+</member>
+<member name="M:Utils.Utils.RegexParser(System.String)">
+ <summary>
+ Realiza los escapes para usar una cadena de texto dentro de una expresión regular.
+ </summary>
+ <param name="s">Texto a evaluar.</param>
+ <returns></returns>
+</member>
+<member name="M:Utils.Utils.SpamListParser(System.String)">
+ <summary>
+ Realiza los escapes para usar una cadena de texto dentro de una expresión regular, exceptuando el "pipe" (|).
+ </summary>
+ <param name="s">Texto a evaluar.</param>
+ <returns></returns>
+</member>
+<member name="M:Utils.Utils.GetTitlesOfTemplate(System.String)">
+ <summary>
+ Entrega el título de la página en la pseudoplantilla de resúmenes de página.
+ </summary>
+ <param name="SourceString">Texto a evaluar.</param>
+ <returns></returns>
+</member>
+<member name="M:Utils.Utils.ReplaceFirst(System.String,System.String,System.String)">
+ <summary>
+ Reeplaza la primera ocurrencia de una cadena dada en la cadena de entrada.
+ </summary>
+ <param name="text">Cadena de texto a modificar.</param>
+ <param name="search">Cadena texto a buscar.</param>
+ <param name="replace">Cadena texto de reemplazo.</param>
+ <returns></returns>
+</member>
+<member name="M:Utils.Utils.ReplaceLast(System.String,System.String,System.String)">
+ <summary>
+ Reeplaza la última ocurrencia de una cadena dada en la cadena de entrada.
+ </summary>
+ <param name="text">Cadena de texto a modificar.</param>
+ <param name="search">Cadena texto a buscar.</param>
+ <param name="replace">Cadena texto de reemplazo.</param>
+ <returns></returns>
+</member>
+<member name="M:Utils.Utils.WriteLine(System.String,System.String,System.String)">
+ <summary>
+ Escribe una línea en la salida del programa a modo de registro siguiendo un formato estándar 
+ (en realidad es completamente arbitrario pero está ordenado y bonito :) ).
+ </summary>
+ <param name="type">Tipo de registro</param>
+ <param name="source">Origen del registro</param>
+ <param name="message">Mensaje de salida</param>
+</member>
+<member name="M:Utils.Utils.GetLines(System.String)">
+ <summary>
+ Retorna las líneas contenidas en una cadena de texto.
+ </summary>
+ <param name="text">Texto a evaluar.</param>
+ <returns></returns>
+</member>
+<member name="M:Utils.Utils.GetLines(System.String,System.Boolean)">
+ <summary>
+ Retorna las líneas contenidas en una cadena de texto.
+ </summary>
+ <param name="text">Texto a evaluar.</param>
+ <param name="removeemptylines">Eliminar las líneas vacías</param>
+ <returns></returns>
+</member>
+<member name="M:Utils.Utils.FixResumeNumericExp(System.String)">
+ <summary>
+ Soluciona un error de la api en los resúmenes, donde cuertas plantillas los números los entrega repetidos con varios símbolos en medio.
+ </summary>
+ <param name="text"></param>
+ <returns></returns>
+</member>
+<member name="M:Utils.Utils.GetNormalizedTitlesOfTemplate(System.String)">
+ <summary>
+ Normaliza los títulos de la plantilla de resúmenes.
+ </summary>
+ <param name="SourceString">Texto a evaluar.</param>
+ <returns></returns>
+</member>
+<member name="M:Utils.Utils.TextInBetween(System.String,System.String,System.String)">
+ <summary>
+ Entrega un array con todas las coincidencias donde se encuentre un texto en medio de dos cadenas de texto
+ </summary>
+ <param name="SourceString">Texto a evaluar.</param>
+ <param name="string1">Texto a la izquierda.</param>
+ <param name="string2">Texto a la derecha.</param>
+ <returns></returns>
+</member>
+<member name="M:Utils.Utils.TextInBetweenInclusive(System.String,System.String,System.String)">
+ <summary>
+ Similar a TextInBetween pero incluye además las las cadenas a la izquierda y derecha del texto.
+ </summary>
+ <param name="SourceString">Texto a evaluar.</param>
+ <param name="string1">Texto a la izquierda.</param>
+ <param name="string2">Texto a la derecha</param>
+ <returns></returns>
+</member>
+<member name="M:Utils.Utils.MatchQuotedIntegers(System.String)">
+ <summary>
+ Entrega un array con todos los números (integer) que estén entre comillas.
+ </summary>
+ <param name="SourceString">Texto a evaluar.</param>
+ <returns></returns>
+</member>
+<member name="M:Utils.Utils.GetTitlesFromQueryText(System.String)">
+ <summary>
+ Entrega los títulos en una cadena de texto con el formato de respuesta de la Api de wikipedia.
+ </summary>
+ <param name="sourcestring">Texto a evaluar.</param>
+ <returns></returns>
+</member>
+<member name="M:Utils.Utils.NormalizeUnicodetext(System.String)">
+ <summary>
+ Normaliza el texto ASCII con códigos unicodes escapados con el formato \\u(número)
+ </summary>
+ <param name="stringToNormalize"></param>
+ <returns></returns>
+</member>
+<member name="M:Utils.Utils.NormalizeHexScapedString(System.String)">
+ <summary>
+ Normaliza el texto ASCII con códigos unicodes escapados con el formato \\u(número)
+ </summary>
+ <param name="stringToNormalize"></param>
+ <returns></returns>
+</member>
+<member name="M:Utils.Utils.UrlWebEncode(System.String)">
+ <summary>
+ Codifica una cadena de texto en URLENCODE.
+ </summary>
+ <param name="textToEncode">Texto a codificar.</param>
+ <returns></returns>
+</member>
+<member name="M:Utils.Utils.UrlWebDecode(System.String)">
+ <summary>
+ Decodifica una cadena de texto en URLENCODE.
+ </summary>
+ <param name="text">Texto a decodificar.</param>
+ <returns></returns>
+</member>
+<member name="M:Utils.Utils.GetUserFromChatresponse(System.String)">
+ <summary>
+ Evalua una línea de texto (formato IRC según la RFC) y entrega el usuario que emitió el mensaje.
+ </summary>
+ <param name="response">Mensaje a evaluar.</param>
+ <returns></returns>
+</member>
+<member name="M:Utils.Utils.RemoveAllAlphas(System.String)">
+ <summary>
+ Elimina todas las letras dejando únicamente números
+ </summary>
+ <param name="text">Texto a evaluar</param>
+ <returns></returns>
+</member>
+<member name="M:Utils.Utils.ColoredText(System.String,System.Int32,System.Int32)">
+ <summary>
+ Retorna una cadena de texto formateada de tal forma que muestra colores, para mas info ver https://github.com/myano/jenni/wiki/IRC-String-Formatting
+ </summary>
+ <param name="ForegroundColor">Color del texto</param>
+ <param name="BackgroundColor">Color del fondo, i se omite se usa el color por defecto del cliente irc</param>
+</member>
+<member name="M:Utils.Utils.CountOccurrences(System.String,System.String)">
+ <summary>
+ Cuenta las veces que se repite una cadena de texto en otra cadena de texto.
+ </summary>
+ <param name="StToSearch"></param>
+ <param name="StToLookFor"></param>
+ <returns></returns>
+</member>
+<member name="M:Utils.Utils.LvlOfAppereance(System.String,System.String[])">
+ <summary>
+ Entrega un valor que simboliza el nivel de aparición de las palabras indicadas
+ </summary>
+ <param name="Phrase">Frase a evaluar</param>
+ <param name="words">Palabras a buscar</param>
+ <returns></returns>
+</member>
+<member name="M:Utils.Utils.SplitStringArrayIntoChunks(System.String[],System.Int32)">
+ <summary>
+ Separa un array de string segun lo especificado. Retorna una lista con listas de texto.
+ </summary>
+ <param name="StrArray">Lista a partir</param>
+ <param name="chunkSize">En cuantos items se parte</param>
+ <returns></returns>
+</member>
+<member name="M:Utils.Utils.GetSizeAsString(System.Int32)">
+ <summary>
+ Retorna una cadena de texto que interpreta los bytes entregados como Byte, Kbyte o Mbyte respectivamente.
+ Importante: El valor debe ser en Bytes, no Bits. La función redondea en la segunda posición decimal.
+ </summary>
+ <param name="bytes"></param>
+ <returns></returns>
+</member>
+<member name="M:Utils.Utils.GetLinkText(System.String)">
+ <summary>
+ Retorna el destino del enlace interno y el texto del mismo. Debe pasarse como parámetro una cadena de texto con formato de enlace wiki. Debe cumplir con la expresión regular "(\[\[)(.+?)(\]\]))".
+ </summary>
+ <param name="tlink"></param>
+ <returns></returns>
+</member>
+<member name="M:Utils.Utils.IsODD(System.Int32)">
+ <summary>
+ Retorna true si un numero es par.
+ </summary>
+ <param name="Number"></param>
+ <returns></returns>
+</member>
+<member name="M:Utils.Utils.SplitIntegerArrayIntoChunks(System.Int32[],System.Int32)">
+ <summary>
+ Separa un array de integer segun lo especificado. Retorna una lista con listas de integer.
+ </summary>
+ <param name="IntArray">Lista a partir</param>
+ <param name="chunkSize">En cuantos items se parte</param>
+ <returns></returns>
+</member>
+<member name="M:Utils.Utils.StringToIntArray(System.String)">
+ <summary>
+ Convierte una cadena de texto a un array de integer donde cada valor equivale a la representación numérica del cada caracter en la cadena.
+ </summary>
+ <param name="tstring"></param>
+ <returns></returns>
+</member>
+<member name="M:Utils.Utils.ExitProgram">
+ <summary>
+ Finaliza el programa correctamente.
+ </summary>
+</member>
+<member name="M:Utils.Utils.Swap``1(``0@,``0@)">
+ <summary>
+ Intercambia dos objetos del mismo tipo
+ </summary>
+ <typeparam name="T"></typeparam>
+ <param name="arg1"></param>
+ <param name="arg2"></param>;
+</member>
+<member name="M:Utils.Utils.WaitSeconds(System.Int32)">
+ <summary>
+ Establece un tiempo de espera (en segundos)
+ </summary>
+ <param name="seconds"></param>
+ <returns></returns>
+</member>
+<member name="M:Utils.Utils.UnixToTime(System.String)">
+ <summary>
+ Convierte una cadena de texto con una hora en formato unix a DateTime
+ </summary>
+ <param name="strUnixTime"></param>
+ <returns></returns>
+</member>
+<member name="M:Utils.Utils.TimeToUnix(System.DateTime)">
+ <summary>
+ Convierte una fecha a un numero entero que representa la hora en formato unix
+ </summary>
+ <param name="dteDate"></param>
+ <returns></returns>
+</member>
+<member name="M:Utils.Utils.TimeStringToSeconds(System.String)">
+ <summary>
+ Convierte una cadena de texto con formato especial a segundos
+ </summary>
+ <param name="time"></param>
+ <returns></returns>
+</member>
+<member name="M:Utils.Utils.GetCurrentThreads">
+ <summary>
+ Retorna los hilos hijos del programa, puede variar según el framework. No es fiable como indicador de tareas en ejecución.
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:Utils.Utils.PrivateMemory">
+ <summary>
+ Entrega la cantidad de memoria reservada para el proceso, depende del framework y no tiene relación directa con el rendimiento real del programa.
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:Utils.Utils.UsedMemory">
+ <summary>
+ Entrega la cantidad de memoria que el programa está usando efectivamente.
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:Utils.Utils.PressKeyTimeout(System.Int32)">
+ <summary>
+ Entrega Verdadero si el usuario presiona cualquier tecla dentro del tiempo indicado
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:Utils.Utils.AllDateTimes(System.String)">
+ <summary>
+ Entrega como array de DateTime todas las fechas (Formato de firma Wikipedia) en el texto dado.
+ </summary>
+ <param name="text">Texto a evaluar</param>
+ <returns></returns>
+</member>
+<member name="M:Utils.Utils.GetPageMainThreads(System.String)">
+ <summary>
+ Evalua texto (wikicódigo) y regresa un array de string con cada uno de los hilos del mismo (los que comienzan con = ejemplo = y terminan en otro comienzo o el final de la página).
+ </summary>
+ <param name="pagetext">Texto a evaluar</param>
+ <returns></returns>
+</member>
+<member name="M:Utils.Utils.GetPageThreads(System.String)">
+ <summary>
+ Evalua texto (wikicódigo) y regresa un array de string con cada uno de los hilos del mismo (los que comienzan con == ejemplo == y terminan en otro comienzo o el final de la página).
+ </summary>
+ <param name="pagetext">Texto a evaluar</param>
+ <returns></returns>
+</member>
+<member name="M:Utils.Utils.GetPageSubThreads(System.String)">
+ <summary>
+ Evalua texto (wikicódigo) y regresa un array de string con cada uno de los subhilos del mismo (los que comienzan con === ejemplo === y terminan en otro subhilo o el final de la página).
+ </summary>
+ <param name="pagetext">Texto a evaluar</param>
+ <returns></returns>
+</member>
+<member name="M:Utils.Utils.GetXLvlThread(System.String,System.String)">
+ <summary>
+ Función base que obtiene los secciones de una página según la expresión regular que defina las secciones.
+ </summary>
+ <param name="pagetext"></param>
+ <param name="Threadregex"></param>
+ <returns></returns>
+</member>
+<member name="M:Utils.Utils.LastParagraphDateTime(System.String)">
+ <summary>
+ Entrega como DateTime la última fecha (formato firma Wikipedia) en el último parrafo. Si no encuentra firma retorna 31/12/9999.
+ </summary>
+ <param name="text">Texto a evaluar</param>
+ <returns></returns>
+</member>
+<member name="M:Utils.Utils.ESWikiDatetime(System.String)">
+ <summary>
+ Entrega 
+ </summary>
+ <param name="text">Entrega la ultima fecha, que aparezca en un texto dado (si la fecha tiene formato de firma wikipedia).</param>
+ <returns></returns>
+</member>
+<member name="M:Utils.Utils.MostRecentDate(System.String)">
+ <summary>
+ Entrega como DateTime la fecha más reciente en el texto dado (en formato de firma wikipedia).
+ </summary>
+ <param name="text"></param>
+ <returns></returns>
+</member>
+<member name="M:Utils.Utils.FirstDate(System.String)">
+ <summary>
+ Entrega como DateTime la primera fecha que aparece en el hilo.
+ </summary>
+ <param name="text"></param>
+ <returns></returns>
+</member>
+</members>
+</doc>

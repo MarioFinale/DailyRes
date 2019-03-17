@@ -1,0 +1,49 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+EfeVid
+</name>
+</assembly>
+<members>
+<member name="T:EfeVid.My.Resources.Resources">
+<summary>
+  Clase de recurso fuertemente tipado, para buscar cadenas traducidas, etc.
+</summary>
+</member>
+<member name="P:EfeVid.My.Resources.Resources.ResourceManager">
+<summary>
+  Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
+</summary>
+</member>
+<member name="P:EfeVid.My.Resources.Resources.Culture">
+<summary>
+  Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
+  búsquedas de recursos mediante esta clase de recurso fuertemente tipado.
+</summary>
+</member>
+<member name="P:EfeVid.My.Resources.Resources.status_gen">
+<summary>
+  Busca una cadena traducida similar a &lt;html&gt;&lt;meta http-equiv=&quot;refresh&quot; content=&quot;1&quot;&gt;&lt;div align=&quot;center&quot;&gt;&lt;h1&gt;GENERANDO VIDEOS&lt;/h1&gt;&lt;/div&gt;&lt;/html&gt;.
+</summary>
+</member>
+<member name="P:EfeVid.My.Resources.Resources.status_loading">
+<summary>
+  Busca una cadena traducida similar a &lt;html&gt;&lt;meta http-equiv=&quot;refresh&quot; content=&quot;1&quot;&gt;&lt;div align=&quot;center&quot;&gt;&lt;h1&gt;CARGANDO...&lt;/h1&gt;&lt;/div&gt;&lt;/html&gt;.
+</summary>
+</member>
+<member name="P:EfeVid.My.Resources.Resources.status_OK">
+<summary>
+  Busca una cadena traducida similar a &lt;html&gt;&lt;meta http-equiv=&quot;refresh&quot; content=&quot;1&quot;&gt;&lt;div align=&quot;center&quot;&gt;&lt;h1&gt;VIDEOS GENERADOS&lt;/h1&gt;&lt;/div&gt;&lt;/html&gt;.
+</summary>
+</member>
+<member name="M:EfeVid.VideoGen.Fadein(System.String,System.String,System.Int32,System.Drawing.Image,System.Drawing.Image)">
+ <summary>
+ La imagen de fondo debe tener el mismo tamaño que la de frente
+ </summary>
+ <param name="Bgimg"></param>
+ <param name="image"></param>
+ <returns></returns>
+</member>
+</members>
+</doc>
