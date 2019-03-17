@@ -6,7 +6,6 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Drawing;
 using System.Net;
-using Image = System.Drawing.Image;
 
 namespace DailyRes
 {
@@ -25,8 +24,8 @@ namespace DailyRes
             int tpageindex = int.Parse(tpage.Extract) + offset;
 
             Page respage = Workerbot.Getpage("Plantilla:RDD/" + tpageindex.ToString());
-            string pageimage = Utils.Utils.TextInBetween(respage.Content,"|imagen=", "|")[0].Trim();
-            List<string> links = Utils.Utils.TextInBetween(respage.Content, "[[", "]]").ToList();
+            string pageimage = Utils.TextInBetween(respage.Content,"|imagen=", "|")[0].Trim();
+            List<string> links = Utils.TextInBetween(respage.Content, "[[", "]]").ToList();
 
             for (int i = 0; i < links.Count; i++)
             {
@@ -34,18 +33,18 @@ namespace DailyRes
                 {
                     links[i] = links[i].Split('|')[0];
                 }
-                links[i] = "• " + Utils.Utils.UppercaseFirstCharacter(links[i]) + ": https://es.wikipedia.org/wiki/" + Utils.Utils.UppercaseFirstCharacter(links[i]).Replace(" ", "_");
+                links[i] = "• " + Utils.UppercaseFirstCharacter(links[i]) + ": https://es.wikipedia.org/wiki/" + Utils.UppercaseFirstCharacter(links[i]).Replace(" ", "_");
             }
             return new Tuple<string, string, string[]>(respage.Extract, pageimage, links.ToArray());
         }
 
         public Tuple<Image, string[]> GetCommonsFile(string CommonsFilename)
         {
-            string responsestring = Utils.Utils.NormalizeUnicodetext(Workerbot.GETQUERY("action=query&format=json&titles=File:" + Utils.Utils.UrlWebEncode(CommonsFilename) + "&prop=imageinfo&iiprop=extmetadata|url&iiurlwidth=1000"));
-            string[] thumburlmatches = Utils.Utils.TextInBetween(responsestring, "\"thumburl\":\"", "\",");
-            string[] licencematches = Utils.Utils.TextInBetween(responsestring, "\"LicenseShortName\":{\"value\":\"", "\",");
-            string[] licenceurlmatches = Utils.Utils.TextInBetween(responsestring, "\"LicenseUrl\":{\"value\":\"", "\",");
-            string[] authormatches = Utils.Utils.TextInBetween(responsestring, "\"Artist\":{\"value\":\"", "\",");
+            string responsestring = Utils.NormalizeUnicodetext(Workerbot.GETQUERY("action=query&format=json&titles=File:" + Utils.UrlWebEncode(CommonsFilename) + "&prop=imageinfo&iiprop=extmetadata|url&iiurlwidth=1000"));
+            string[] thumburlmatches = Utils.TextInBetween(responsestring, "\"thumburl\":\"", "\",");
+            string[] licencematches = Utils.TextInBetween(responsestring, "\"LicenseShortName\":{\"value\":\"", "\",");
+            string[] licenceurlmatches = Utils.TextInBetween(responsestring, "\"LicenseUrl\":{\"value\":\"", "\",");
+            string[] authormatches = Utils.TextInBetween(responsestring, "\"Artist\":{\"value\":\"", "\",");
             string matchstring = @"<[\S\s]+?>";
             string matchstring2 = @"\([\S\s]+?\)";
 
@@ -98,7 +97,7 @@ namespace DailyRes
             }
             catch (Exception ex)
             {
-                Utils.Utils.EventLogger.EX_Log(ex.Message, "DailyRes");
+                Utils.EventLogger.EX_Log(ex.Message, "DailyRes");
                 img.Dispose();
                 return null;
             }
