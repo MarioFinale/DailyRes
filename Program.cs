@@ -15,7 +15,7 @@ namespace DailyRes
         public static LogEngine.LogEngine EventLogger = new LogEngine.LogEngine(Log_Filepath, Users_Filepath, "DailyRes");
         static void Main(string[] args)
         {
-            Bot ESWikiBOT = new Bot(new ConfigFile(GlobalVars.ConfigFilePath));
+            Bot ESWikiBOT = new Bot(new ConfigFile(Utils.Utils.Exepath + "Config.cfg"));
             DailyRes tres = new DailyRes(ESWikiBOT);
             string folderpath = Utils.Utils.Exepath + Utils.Utils.DirSeparator + "dres" + Utils.Utils.DirSeparator;
 
@@ -82,13 +82,6 @@ namespace DailyRes
                 }
                 System.Threading.Thread.Sleep(250);
             }
-
         }
     }
-
-
-
-
-
-
 }

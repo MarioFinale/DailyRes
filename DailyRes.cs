@@ -33,7 +33,7 @@ namespace DailyRes
                     links[i] = links[i].Split('|')[0];
                 }
                 links[i] = "• " + Utils.Utils.UppercaseFirstCharacter(links[i]) + ": https://tools.wmflabs.org/periodibot/drespage.php?" 
-                    + "wikiurl=" + Utils.Utils.UrlWebEncode("https://es.wikipedia.org/" + Utils.Utils.UppercaseFirstCharacter(links[i]).Replace(" ", "_")) 
+                    + "wikiurl=" + Utils.Utils.UrlWebEncode("https://es.wikipedia.org/wiki/" + Utils.Utils.UppercaseFirstCharacter(links[i]).Replace(" ", "_")) 
                     + "&commonsfilename=" + Utils.Utils.UrlWebEncode(pageimage) 
                     + "&imgdesc=" + Utils.Utils.UrlWebEncode(respage.Extract)
                     + "&authorurl="
