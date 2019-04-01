@@ -7,14 +7,14 @@ using Image = System.Drawing.Image;
 
 namespace DailyRes
 {
-    class Program
+   class Program
     {
+        static string Reqpath = Utils.Utils.Exepath + "req" + Utils.Utils.DirSeparator;
+        static string Log_Filepath = Utils.Utils.Exepath + "dreslog.psv";
+        static string Users_Filepath = Utils.Utils.Exepath + "Users.psv";
+        public static LogEngine.LogEngine EventLogger = new LogEngine.LogEngine(Log_Filepath, Users_Filepath, "DailyRes");
         static void Main(string[] args)
         {
-
-            string Log_Filepath = Utils.Utils.Exepath + "dreslog.psv";
-            string Users_Filepath = Utils.Utils.Exepath + "Users.psv";
-            LogEngine.LogEngine EventLogger = new LogEngine.LogEngine(Log_Filepath, Users_Filepath, "DailyRes");
             Bot ESWikiBOT = new Bot(new ConfigFile(GlobalVars.ConfigFilePath));
             DailyRes tres = new DailyRes(ESWikiBOT);
             string folderpath = Utils.Utils.Exepath + Utils.Utils.DirSeparator + "dres" + Utils.Utils.DirSeparator;
@@ -23,9 +23,13 @@ namespace DailyRes
             {
                 try
                 {
-                    if (System.IO.File.Exists(Utils.Utils.Exepath + "DailyRes.exe.runme"))
+                    if (!System.IO.Directory.Exists(Reqpath))
                     {
-                        System.IO.File.Delete(Utils.Utils.Exepath + "DailyRes.exe.runme");
+                        System.IO.Directory.CreateDirectory(Reqpath);
+                    }
+                    if (System.IO.File.Exists(Reqpath + "DailyRes.runme"))
+                    {
+                        System.IO.File.Delete(Reqpath + "DailyRes.runme");
 
                         if (!System.IO.Directory.Exists(folderpath))
                         {
@@ -37,15 +41,14 @@ namespace DailyRes
                             DateTime tday = DateTime.UtcNow.AddDays(i);
                             string datename = tday.ToString("dd-MM-yyyy");
 
-                            Tuple<string, string, string[]> tx = tres.GetResImg(i);
+                            Tuple<string, string, string[]> tx = tres.GetResImg(tday);
                             
                             string tdesc = tx.Item1 + Environment.NewLine + Environment.NewLine;
-                            tdesc = tdesc + tx.Item3[0] + Environment.NewLine + "• Enlace a la imagen completa: https://commons.wikimedia.org/wiki/File:" + Utils.Utils.UrlWebEncode(tx.Item2.Replace(" ", "_")) + Environment.NewLine + Environment.NewLine + "• Imagen por " + tres.GetCommonsFile(tx.Item2).Item2[2];
-                            tdesc = tdesc + Environment.NewLine + "• Licencia: " + tres.GetCommonsFile(tx.Item2).Item2[0] + " (" + tres.GetCommonsFile(tx.Item2).Item2[1] + ")";
+                            tdesc = tdesc + tx.Item3[0];
                             tdesc = Resources.header + tdesc + Resources.bottom;
                             System.IO.File.WriteAllText(folderpath + datename + ".htm", tdesc);
                             System.IO.File.WriteAllText(folderpath + datename + ".commons.htm", "https://commons.wikimedia.org/wiki/File:" + Utils.Utils.UrlWebEncode(tx.Item2.Replace(" ", "_")));
-                            tres.GetCommonsFile(tx.Item2).Item1.Save(folderpath + datename + ".jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+                            tres.GetCommonsFile(tx.Item2).Item1.Save(folderpath + datename + ".png", System.Drawing.Imaging.ImageFormat.Png);
 
                         }
                         //delete old data
@@ -65,6 +68,10 @@ namespace DailyRes
                             if (System.IO.File.Exists(folderpath + datename + ".jpg"))
                             {
                                 System.IO.File.Delete(folderpath + datename + ".jpg");
+                            }
+                            if (System.IO.File.Exists(folderpath + datename + ".png"))
+                            {
+                                System.IO.File.Delete(folderpath + datename + ".png");
                             }
                         }                        
                     }
