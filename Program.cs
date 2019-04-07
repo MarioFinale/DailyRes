@@ -7,7 +7,7 @@ using Image = System.Drawing.Image;
 
 namespace DailyRes
 {
-   class Program
+    class Program
     {
         static string Reqpath = Utils.Utils.Exepath + "req" + Utils.Utils.DirSeparator;
         static string Log_Filepath = Utils.Utils.Exepath + "dreslog.psv";
@@ -19,7 +19,7 @@ namespace DailyRes
             DailyRes tres = new DailyRes(ESWikiBOT);
             string folderpath = Utils.Utils.Exepath + Utils.Utils.DirSeparator + "dres" + Utils.Utils.DirSeparator;
 
-            for (;;)
+            for (; ; )
             {
                 try
                 {
@@ -42,7 +42,7 @@ namespace DailyRes
                             string datename = tday.ToString("dd-MM-yyyy");
 
                             Tuple<string, string, string[]> tx = tres.GetResImg(tday);
-                            
+
                             string tdesc = tx.Item1 + Environment.NewLine + Environment.NewLine;
                             tdesc = tdesc + tx.Item3[0];
                             tdesc = Resources.header + tdesc + Resources.bottom;
@@ -73,7 +73,7 @@ namespace DailyRes
                             {
                                 System.IO.File.Delete(folderpath + datename + ".png");
                             }
-                        }                        
+                        }
                     }
                 }
                 catch (Exception ex)

@@ -18,12 +18,12 @@ namespace DailyRes
         {
             Workerbot = tbot;
         }
-        
-        public Tuple<string,string,string[]> GetResImg(DateTime tdate)
+
+        public Tuple<string, string, string[]> GetResImg(DateTime tdate)
         {
             int tpageindex = GetNumber(tdate.Year, tdate.Month, tdate.Day);
             Page respage = Workerbot.Getpage("Plantilla:RDD/" + tpageindex.ToString());
-            string pageimage = Utils.Utils.TextInBetween(respage.Content,"|imagen=", "|")[0].Trim();
+            string pageimage = Utils.Utils.TextInBetween(respage.Content, "|imagen=", "|")[0].Trim();
             List<string> links = Utils.Utils.TextInBetween(respage.Content, "[[", "]]").ToList();
 
             for (int i = 0; i < links.Count; i++)
@@ -32,9 +32,9 @@ namespace DailyRes
                 {
                     links[i] = links[i].Split('|')[0];
                 }
-                links[i] = "• " + Utils.Utils.UppercaseFirstCharacter(links[i]) + ": https://tools.wmflabs.org/periodibot/drespage.php?" 
-                    + "wikiurl=" + Utils.Utils.UrlWebEncode("https://es.wikipedia.org/wiki/" + Utils.Utils.UppercaseFirstCharacter(links[i]).Replace(" ", "_")) 
-                    + "&commonsfilename=" + Utils.Utils.UrlWebEncode(pageimage) 
+                links[i] = "• " + Utils.Utils.UppercaseFirstCharacter(links[i]) + ": https://tools.wmflabs.org/periodibot/drespage.php?"
+                    + "wikiurl=" + Utils.Utils.UrlWebEncode("https://es.wikipedia.org/wiki/" + Utils.Utils.UppercaseFirstCharacter(links[i]).Replace(" ", "_"))
+                    + "&commonsfilename=" + Utils.Utils.UrlWebEncode(pageimage)
                     + "&imgdesc=" + Utils.Utils.UrlWebEncode(respage.Extract)
                     + "&authorurl="
                     + "&timage=" + Utils.Utils.UrlWebEncode("https://tools.wmflabs.org/periodibot/dres/" + tdate.Day.ToString("00") + "-" + tdate.Month.ToString("00") + "-" + tdate.Year.ToString() + ".png")
@@ -82,7 +82,7 @@ namespace DailyRes
                 img = PicFromUrl(thumburlmatches[0]);
             if (string.IsNullOrWhiteSpace(author) | (author.ToLower().Contains("unknown")))
                 author = "Desconocido";
-            return new Tuple<Image, string[]>(img, new string[]{licence,licenceurl,author});
+            return new Tuple<Image, string[]>(img, new string[] { licence, licenceurl, author });
         }
 
         public Image PicFromUrl(string url)
@@ -117,11 +117,13 @@ namespace DailyRes
 
             foreach (Template temp in tlist)
             {
-                if (temp.Name.Trim().Contains("#switch")){
+                if (temp.Name.Trim().Contains("#switch"))
+                {
 
-                    foreach (Tuple<string,string> param in temp.Parameters)
+                    foreach (Tuple<string, string> param in temp.Parameters)
                     {
-                        if (param.Item1.Trim() == day.ToString()){
+                        if (param.Item1.Trim() == day.ToString())
+                        {
                             if (param.Item2.Contains("<!--"))
                             {
                                 string ptext = param.Item2.Split('<')[0];
@@ -130,15 +132,15 @@ namespace DailyRes
                             else
                             {
                                 return int.Parse(Utils.Utils.RemoveAllAlphas(param.Item2));
-                            }                            
+                            }
                         }
                     }
                 }
             }
             return 0;
-        }        
+        }
     }
 
 
-  
+
 }
