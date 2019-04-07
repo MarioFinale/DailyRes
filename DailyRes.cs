@@ -17,7 +17,6 @@ namespace DailyRes
         public DailyRes(Bot tbot)
         {
             Workerbot = tbot;
-
         }
         
         public Tuple<string,string,string[]> GetResImg(DateTime tdate)

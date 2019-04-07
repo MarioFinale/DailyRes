@@ -52,7 +52,7 @@ namespace DailyRes
 
                         }
                         //delete old data
-                        for (int i = -1; i > -4; i = i - 1)
+                        for (int i = -1; i > -4; i -= 1)
                         {
                             DateTime tday = DateTime.UtcNow.AddDays(i);
                             string datename = tday.ToString("dd-MM-yyyy");
