@@ -9,13 +9,14 @@ namespace DailyRes
 {
     class Program
     {
-        static string Reqpath = Utils.Utils.Exepath + "req" + Utils.Utils.DirSeparator;
-        static string Log_Filepath = Utils.Utils.Exepath + "dreslog.psv";
-        static string Users_Filepath = Utils.Utils.Exepath + "Users.psv";
+        static readonly string Reqpath = Utils.Utils.Exepath + "req" + Utils.Utils.DirSeparator;
+        static readonly string Log_Filepath = Utils.Utils.Exepath + "dreslog.psv";
+        static readonly string Users_Filepath = Utils.Utils.Exepath + "Users.psv";
+        static readonly string ConfigFile = Utils.Utils.Exepath + "Config.cfg";
         public static LogEngine.LogEngine EventLogger = new LogEngine.LogEngine(Log_Filepath, Users_Filepath, "DailyRes");
         static void Main(string[] args)
         {
-            Bot ESWikiBOT = new Bot(new ConfigFile(Utils.Utils.Exepath + "Config.cfg"));
+            Bot ESWikiBOT = new Bot(ConfigFile);
             DailyRes tres = new DailyRes(ESWikiBOT);
             string folderpath = Utils.Utils.Exepath + Utils.Utils.DirSeparator + "dres" + Utils.Utils.DirSeparator;
 

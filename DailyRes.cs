@@ -140,7 +140,4 @@ namespace DailyRes
             return 0;
         }
     }
-
-
-
 }
