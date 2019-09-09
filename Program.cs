@@ -7,18 +7,23 @@ using Image = System.Drawing.Image;
 
 namespace DailyRes
 {
-    class Program
+    /// <summary>
+    /// 
+    /// </summary>
+    public static class Program
     {
         static readonly string Reqpath = Utils.Utils.Exepath + "req" + Utils.Utils.DirSeparator;
         static readonly string Log_Filepath = Utils.Utils.Exepath + "dreslog.psv";
         static readonly string Users_Filepath = Utils.Utils.Exepath + "Users.psv";
         static readonly string ConfigFile = Utils.Utils.Exepath + "Config.cfg";
+        /// <summary>
+        /// Event logger.
+        /// </summary>
         public static LogEngine.LogEngine EventLogger = new LogEngine.LogEngine(Log_Filepath, Users_Filepath, "DailyRes");
         static void Main(string[] args)
         {
             Bot ESWikiBOT = new Bot(ConfigFile);
-            DailyRes tres = new DailyRes(ESWikiBOT);
-            string folderpath = Utils.Utils.Exepath + Utils.Utils.DirSeparator + "dres" + Utils.Utils.DirSeparator;
+            string folderpath = Utils.Utils.Exepath + "dres" + Utils.Utils.DirSeparator;
 
             for (; ; )
             {
@@ -40,16 +45,12 @@ namespace DailyRes
                         for (int i = 0; i < 31; i++)
                         {
                             DateTime tday = DateTime.UtcNow.AddDays(i);
-                            string datename = tday.ToString("dd-MM-yyyy");
-
-                            Tuple<string, string, string[]> tx = tres.GetResImg(tday);
-
-                            string tdesc = tx.Item1 + Environment.NewLine + Environment.NewLine;
-                            tdesc = tdesc + tx.Item3[0];
-                            tdesc = Resources.header + tdesc + Resources.bottom;
-                            System.IO.File.WriteAllText(folderpath + datename + ".htm", tdesc);
-                            System.IO.File.WriteAllText(folderpath + datename + ".commons.htm", "https://commons.wikimedia.org/wiki/File:" + Utils.Utils.UrlWebEncode(tx.Item2.Replace(" ", "_")));
-                            tres.GetCommonsFile(tx.Item2).Item1.Save(folderpath + datename + ".png", System.Drawing.Imaging.ImageFormat.Png);
+                            DailyRes dailyRes = new DailyRes(ref ESWikiBOT);
+                            Resource resource = new Resource(tday, ref ESWikiBOT);
+                            dailyRes.MakeResourceDescriptionFile(tday, resource, folderpath);
+                            dailyRes.MakeCommonsFile(tday, resource, folderpath);
+                            dailyRes.MakeResourceFile(tday, resource, folderpath);
+                 
 
                         }
                         //delete old data
