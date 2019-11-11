@@ -13,7 +13,7 @@ namespace DailyRes
         static readonly string Log_Filepath = Utils.Utils.Exepath + "dreslog.psv";
         static readonly string Users_Filepath = Utils.Utils.Exepath + "Users.psv";
         static readonly string ConfigFile = Utils.Utils.Exepath + "Config.cfg";
-        public static LogEngine.LogEngine EventLogger = new LogEngine.LogEngine(Log_Filepath, Users_Filepath, "DailyRes");
+        public static LogEngine.LogEngine EventLogger = new LogEngine.LogEngine(Log_Filepath, Users_Filepath, "DailyRes", true);
         static void Main(string[] args)
         {
             Bot ESWikiBOT = new Bot(ConfigFile);
