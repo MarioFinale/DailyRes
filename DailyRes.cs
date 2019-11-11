@@ -7,6 +7,7 @@ using System.Text.RegularExpressions;
 using System.Drawing;
 using System.Net;
 using Image = System.Drawing.Image;
+using DailyRes.Properties;
 
 namespace DailyRes
 {
@@ -14,10 +15,126 @@ namespace DailyRes
     {
         public static Bot Workerbot { get; private set; }
 
-        public DailyRes(Bot tbot)
+        public DailyRes(ref Bot tbot)
         {
             Workerbot = tbot;
         }
+
+
+        string GetPageUrlByName(string pagename, string wiki)
+        {
+            return "https://" + wiki + ".wikipedia.org/wiki/" + Utils.Utils.UppercaseFirstCharacter(pagename.Replace(" ", "_").Trim());
+        }
+
+        public bool MakeResourceFile(DateTime tdate, Resource tresource, string folderpath)
+        {
+            string filename = tdate.Day.ToString("00") + "-" + tdate.Month.ToString("00") + "-" + tdate.Year.ToString("0000") + ".png";
+            string filepath = folderpath + filename;
+
+
+            if (System.IO.File.Exists(filepath)) System.IO.File.Delete(filepath);
+            try
+            {
+                tresource.Image.Save(filepath);
+            }
+            catch (Exception e)
+            {
+                Program.EventLogger.EX_Log(e.Message, "MakeResourceFile");
+                return false;
+            }
+            return true;
+        }
+        
+
+       public bool MakeResourceDescriptionFile(DateTime tdate, Resource tresource, string folderpath)
+        {
+            string body = Resources.header;
+            body += tresource.Extract;
+
+            if (tresource.FBCompat)
+            {
+                body += Environment.NewLine + Environment.NewLine + "• " + tresource.PagesLinks[0] + ": " + GetPageUrlByName(tresource.PagesLinks[0], "es");
+                body += Resources.bottom1;
+                body += Resources.bottom5_licensecompat_;
+                if (tresource.CheckMediaLicense)
+                {
+                    body += "La licencia del recurso permite que se suba directamente a Facebook, pero puede ser necesario dar atribución al autor." + 
+                                  Environment.NewLine + "<br />Es necesario verificar el recurso en commons.";
+                }
+                else
+                {
+                    body += "La licencia del recurso permite que se suba directamente a Facebook.";
+                }
+                if (tresource.Type != ResourceType.Image)
+                {
+                    body += Environment.NewLine + "La imagen en la derecha es solo una previsualización del " + nameof(tresource.Type) +
+                                                        " para subir el recurso a Facebook es necesario descargarlo desde Wikimedia Commons.";
+                }
+                body += Resources.bottom6_licensecompat2_;
+            } else
+            {
+                body += Resources.bottom1;
+                body += Resources.bottom2_pboturl_ + MakeDresURL(tresource, tdate) + Resources.bottom3_pboturlclose_;
+                body += Resources.bottom4_pboturlcopybutton_;
+                body += Resources.bottomlast;
+            }
+
+            string filename = tdate.Day.ToString("00") + "-" + tdate.Month.ToString("00") + "-" + tdate.Year.ToString("0000") + ".htm";
+            string filepath = folderpath + filename;
+
+            if (System.IO.File.Exists(filepath)) System.IO.File.Delete(filepath);
+            try
+            {
+                System.IO.File.WriteAllText(filepath, body);
+            }
+            catch (Exception e)
+            {
+                Program.EventLogger.EX_Log(e.Message, "MakeResourceDescriptionFile");
+                return false;
+            }
+            return true;
+        }
+
+
+       public bool MakeCommonsFile(DateTime tdate, Resource tresource, string folderpath)
+        {
+            string commonsUrl = tresource.CommonsUrl;
+            string filename = tdate.Day.ToString("00") + "-" + tdate.Month.ToString("00") + "-" + tdate.Year.ToString("0000") + ".commons.htm";
+            string filepath = folderpath + filename;
+
+            if (System.IO.File.Exists(filepath)) System.IO.File.Delete(filepath);
+            try
+            {
+                System.IO.File.WriteAllText(filepath, commonsUrl);
+            }
+            catch (Exception e)
+            {
+                Program.EventLogger.EX_Log(e.Message, "MakeCommonsFile");
+                return false;
+            }
+            return true;
+        }
+
+        
+
+        string MakeDresURL(Resource tresource, DateTime tdate)
+        {
+
+            string tURL;
+            string tlink = tresource.PagesLinks[0];
+            if (tlink.Contains("|")) tlink = tlink.Split('|')[0];
+
+            tURL =  "https://tools.wmflabs.org/periodibot/drespage.php?"
+                    + "wikiurl=" + Utils.Utils.UrlWebEncode("https://es.wikipedia.org/wiki/" + Utils.Utils.UppercaseFirstCharacter(tlink).Replace(" ", "_"))
+                    + "&commonsfilename=" + Utils.Utils.UrlWebEncode(tresource.Name)
+                    + "&imgdesc=" + Utils.Utils.UrlWebEncode(tresource.Extract)
+                    + "&authorurl="
+                    + "&timage=" + Utils.Utils.UrlWebEncode("https://tools.wmflabs.org/periodibot/dres/" + tdate.Day.ToString("00") + "-" + tdate.Month.ToString("00") + "-" + tdate.Year.ToString() + ".png")
+                    + "&title=" + Utils.Utils.UrlWebEncode("Recurso del día en Wikipedia, la enciclopedia libre.");
+            return tURL;
+        }
+
+
 
         public Tuple<string, string, string[]> GetResImg(DateTime tdate)
         {
@@ -39,6 +156,9 @@ namespace DailyRes
                     + "&authorurl="
                     + "&timage=" + Utils.Utils.UrlWebEncode("https://tools.wmflabs.org/periodibot/dres/" + tdate.Day.ToString("00") + "-" + tdate.Month.ToString("00") + "-" + tdate.Year.ToString() + ".png")
                     + "&title=" + Utils.Utils.UrlWebEncode("Recurso del día en Wikipedia, la enciclopedia libre.");
+
+
+
             }
             return new Tuple<string, string, string[]>(respage.Extract, pageimage, links.ToArray());
         }
