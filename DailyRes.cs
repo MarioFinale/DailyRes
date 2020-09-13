@@ -1,13 +1,12 @@
 ﻿using System;
-using MWBot.net;
 using MWBot.net.WikiBot;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
-using System.Drawing;
 using System.Net;
+using System.Drawing;
 using Image = System.Drawing.Image;
-using DailyRes.Properties;
+using DailyRes_dotnet.Properties;
 
 namespace DailyRes
 {

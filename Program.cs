@@ -1,10 +1,5 @@
 ﻿using System;
 using MWBot.net.WikiBot;
-using MWBot.net;
-using System.Drawing;
-using DailyRes.Properties;
-using Image = System.Drawing.Image;
-
 namespace DailyRes
 {
     /// <summary>
@@ -20,10 +15,9 @@ namespace DailyRes
         /// <summary>
         /// Event logger.
         /// </summary>
-        public static LogEngine.LogEngine EventLogger = new LogEngine.LogEngine(Log_Filepath, Users_Filepath, "DailyRes");
         static void Main(string[] args)
         {
-            Bot ESWikiBOT = new Bot(ConfigFile);
+            Bot ESWikiBOT = new Bot(ConfigFile, ref EventLogger);
             string folderpath = Utils.Utils.Exepath + "dres" + Utils.Utils.DirSeparator;
 
             for (; ; )
