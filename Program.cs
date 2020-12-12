@@ -1,5 +1,6 @@
 ﻿using System;
 using MWBot.net.WikiBot;
+using MWBot.net.Utility;
 namespace DailyRes
 {
     /// <summary>
@@ -7,18 +8,18 @@ namespace DailyRes
     /// </summary>
     public static class Program
     {
-        static readonly string Reqpath = Utils.Utils.Exepath + "req" + Utils.Utils.DirSeparator;
-        static readonly string Log_Filepath = Utils.Utils.Exepath + "dreslog.psv";
-        static readonly string Users_Filepath = Utils.Utils.Exepath + "Users.psv";
-        static readonly string ConfigFile = Utils.Utils.Exepath + "Config.cfg";
-        public static LogEngine.LogEngine EventLogger = new LogEngine.LogEngine(Log_Filepath, Users_Filepath, "DailyRes", true);
+        static readonly string Reqpath = Utils.Exepath + "req" + Utils.DirSeparator;
+        static readonly string Log_Filepath = Utils.Exepath + "dreslog.psv";
+        static readonly string Users_Filepath = Utils.Exepath + "Users.psv";
+        static readonly string ConfigFile = Utils.Exepath + "Config.cfg";
+        public static SimpleLogger EventLogger = new SimpleLogger(Log_Filepath, Users_Filepath, "DailyRes", true);
         /// <summary>
         /// Event logger.
         /// </summary>
         static void Main(string[] args)
         {
             Bot ESWikiBOT = new Bot(ConfigFile, ref EventLogger);
-            string folderpath = Utils.Utils.Exepath + "dres" + Utils.Utils.DirSeparator;
+            string folderpath = Utils.Exepath + "dres" + Utils.DirSeparator;
 
             for (; ; )
             {

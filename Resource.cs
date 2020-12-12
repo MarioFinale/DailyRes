@@ -1,4 +1,5 @@
 ﻿using MWBot.net.WikiBot;
+using MWBot.net.Utility;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -81,7 +82,7 @@ namespace DailyRes
         {
             int resNumber = GetNumber(resDate, ref workerBot);
             Page resPage = workerBot.Getpage("Plantilla:RDD/" + resNumber.ToString());
-            string imageName = Utils.Utils.TextInBetween(resPage.Content, "|imagen=", "|")[0].Trim();     
+            string imageName = Utils.TextInBetween(resPage.Content, "|imagen=", "|")[0].Trim();     
             Tuple<Image, string[]> tImage = GetCommonsFile(imageName, ref workerBot);
 
             Image image = tImage.Item1;
@@ -94,7 +95,7 @@ namespace DailyRes
             ResourceType type = GetResourceType(imageName);
             bool fbcompat = LicenseFBCompat(license);
             bool avaliable = (image == null);
-            string[] links =  Utils.Utils.TextInBetween(resPage.Content, "[[", "]]");
+            string[] links =  Utils.TextInBetween(resPage.Content, "[[", "]]");
             List<string> linkslist = new List<string>();
             foreach (string link in links)
             {
@@ -257,11 +258,11 @@ namespace DailyRes
                             if (param.Item2.Contains("<!--"))
                             {
                                 string ptext = param.Item2.Split('<')[0];
-                                return int.Parse(Utils.Utils.RemoveAllAlphas(ptext));
+                                return int.Parse(Utils.RemoveAllAlphas(ptext));
                             }
                             else
                             {
-                                return int.Parse(Utils.Utils.RemoveAllAlphas(param.Item2));
+                                return int.Parse(Utils.RemoveAllAlphas(param.Item2));
                             }
                         }
                     }
@@ -272,11 +273,11 @@ namespace DailyRes
 
         Tuple<Image, string[]> GetCommonsFile(string CommonsFilename, ref Bot workerBot)
         {
-            string responsestring = Utils.Utils.NormalizeUnicodetext(workerBot.GETQUERY("action=query&format=json&titles=File:" + Utils.Utils.UrlWebEncode(CommonsFilename) + "&prop=imageinfo&iiprop=extmetadata|url&iiurlwidth=1000"));
-            string[] thumburlmatches = Utils.Utils.TextInBetween(responsestring, "\"thumburl\":\"", "\",");
-            string[] licencematches = Utils.Utils.TextInBetween(responsestring, "\"LicenseShortName\":{\"value\":\"", "\",");
-            string[] licenceurlmatches = Utils.Utils.TextInBetween(responsestring, "\"LicenseUrl\":{\"value\":\"", "\",");
-            string[] authormatches = Utils.Utils.TextInBetween(responsestring, "\"Artist\":{\"value\":\"", "\",");
+            string responsestring = Utils.NormalizeUnicodetext(workerBot.GETQUERY("action=query&format=json&titles=File:" + Utils.UrlWebEncode(CommonsFilename) + "&prop=imageinfo&iiprop=extmetadata|url&iiurlwidth=1000"));
+            string[] thumburlmatches = Utils.TextInBetween(responsestring, "\"thumburl\":\"", "\",");
+            string[] licencematches = Utils.TextInBetween(responsestring, "\"LicenseShortName\":{\"value\":\"", "\",");
+            string[] licenceurlmatches = Utils.TextInBetween(responsestring, "\"LicenseUrl\":{\"value\":\"", "\",");
+            string[] authormatches = Utils.TextInBetween(responsestring, "\"Artist\":{\"value\":\"", "\",");
             string matchstring = @"<[\S\s]+?>";
             string matchstring2 = @"\([\S\s]+?\)";
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using MWBot.net.WikiBot;
+using MWBot.net.Utility;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -22,7 +23,7 @@ namespace DailyRes
 
         string GetPageUrlByName(string pagename, string wiki)
         {
-            return "https://" + wiki + ".wikipedia.org/wiki/" + Utils.Utils.UppercaseFirstCharacter(pagename.Replace(" ", "_").Trim());
+            return "https://" + wiki + ".wikipedia.org/wiki/" + Utils.UppercaseFirstCharacter(pagename.Replace(" ", "_").Trim());
         }
 
         public bool MakeResourceFile(DateTime tdate, Resource tresource, string folderpath)
@@ -123,13 +124,13 @@ namespace DailyRes
             string tlink = tresource.PagesLinks[0];
             if (tlink.Contains("|")) tlink = tlink.Split('|')[0];
 
-            tURL =  "https://tools.wmflabs.org/periodibot/drespage.php?"
-                    + "wikiurl=" + Utils.Utils.UrlWebEncode("https://es.wikipedia.org/wiki/" + Utils.Utils.UppercaseFirstCharacter(tlink).Replace(" ", "_"))
-                    + "&commonsfilename=" + Utils.Utils.UrlWebEncode(tresource.Name)
-                    + "&imgdesc=" + Utils.Utils.UrlWebEncode(tresource.Extract)
+            tURL =  "https://mariofinale.cl/periodibot/drespage.php?"
+                    + "wikiurl=" + Utils.UrlWebEncode("https://es.wikipedia.org/wiki/" + Utils.UppercaseFirstCharacter(tlink).Replace(" ", "_"))
+                    + "&commonsfilename=" + Utils.UrlWebEncode(tresource.Name)
+                    + "&imgdesc=" + Utils.UrlWebEncode(tresource.Extract)
                     + "&authorurl="
-                    + "&timage=" + Utils.Utils.UrlWebEncode("https://tools.wmflabs.org/periodibot/dres/" + tdate.Day.ToString("00") + "-" + tdate.Month.ToString("00") + "-" + tdate.Year.ToString() + ".png")
-                    + "&title=" + Utils.Utils.UrlWebEncode("Recurso del día en Wikipedia, la enciclopedia libre.");
+                    + "&timage=" + Utils.UrlWebEncode("https://mariofinale.cl/periodibot/dres/" + tdate.Day.ToString("00") + "-" + tdate.Month.ToString("00") + "-" + tdate.Year.ToString() + ".png")
+                    + "&title=" + Utils.UrlWebEncode("Recurso del día en Wikipedia, la enciclopedia libre.");
             return tURL;
         }
 
@@ -139,8 +140,8 @@ namespace DailyRes
         {
             int tpageindex = GetNumber(tdate.Year, tdate.Month, tdate.Day);
             Page respage = Workerbot.Getpage("Plantilla:RDD/" + tpageindex.ToString());
-            string pageimage = Utils.Utils.TextInBetween(respage.Content, "|imagen=", "|")[0].Trim();
-            List<string> links = Utils.Utils.TextInBetween(respage.Content, "[[", "]]").ToList();
+            string pageimage = Utils.TextInBetween(respage.Content, "|imagen=", "|")[0].Trim();
+            List<string> links = Utils.TextInBetween(respage.Content, "[[", "]]").ToList();
 
             for (int i = 0; i < links.Count; i++)
             {
@@ -148,13 +149,13 @@ namespace DailyRes
                 {
                     links[i] = links[i].Split('|')[0];
                 }
-                links[i] = "• " + Utils.Utils.UppercaseFirstCharacter(links[i]) + ": https://tools.wmflabs.org/periodibot/drespage.php?"
-                    + "wikiurl=" + Utils.Utils.UrlWebEncode("https://es.wikipedia.org/wiki/" + Utils.Utils.UppercaseFirstCharacter(links[i]).Replace(" ", "_"))
-                    + "&commonsfilename=" + Utils.Utils.UrlWebEncode(pageimage)
-                    + "&imgdesc=" + Utils.Utils.UrlWebEncode(respage.Extract)
+                links[i] = "• " + Utils.UppercaseFirstCharacter(links[i]) + ": https://tools.wmflabs.org/periodibot/drespage.php?"
+                    + "wikiurl=" + Utils.UrlWebEncode("https://es.wikipedia.org/wiki/" + Utils.UppercaseFirstCharacter(links[i]).Replace(" ", "_"))
+                    + "&commonsfilename=" + Utils.UrlWebEncode(pageimage)
+                    + "&imgdesc=" + Utils.UrlWebEncode(respage.Extract)
                     + "&authorurl="
-                    + "&timage=" + Utils.Utils.UrlWebEncode("https://tools.wmflabs.org/periodibot/dres/" + tdate.Day.ToString("00") + "-" + tdate.Month.ToString("00") + "-" + tdate.Year.ToString() + ".png")
-                    + "&title=" + Utils.Utils.UrlWebEncode("Recurso del día en Wikipedia, la enciclopedia libre.");
+                    + "&timage=" + Utils.UrlWebEncode("https://tools.wmflabs.org/periodibot/dres/" + tdate.Day.ToString("00") + "-" + tdate.Month.ToString("00") + "-" + tdate.Year.ToString() + ".png")
+                    + "&title=" + Utils.UrlWebEncode("Recurso del día en Wikipedia, la enciclopedia libre.");
 
 
 
@@ -164,11 +165,11 @@ namespace DailyRes
 
         public Tuple<Image, string[]> GetCommonsFile(string CommonsFilename)
         {
-            string responsestring = Utils.Utils.NormalizeUnicodetext(Workerbot.GETQUERY("action=query&format=json&titles=File:" + Utils.Utils.UrlWebEncode(CommonsFilename) + "&prop=imageinfo&iiprop=extmetadata|url&iiurlwidth=1000"));
-            string[] thumburlmatches = Utils.Utils.TextInBetween(responsestring, "\"thumburl\":\"", "\",");
-            string[] licencematches = Utils.Utils.TextInBetween(responsestring, "\"LicenseShortName\":{\"value\":\"", "\",");
-            string[] licenceurlmatches = Utils.Utils.TextInBetween(responsestring, "\"LicenseUrl\":{\"value\":\"", "\",");
-            string[] authormatches = Utils.Utils.TextInBetween(responsestring, "\"Artist\":{\"value\":\"", "\",");
+            string responsestring = Utils.NormalizeUnicodetext(Workerbot.GETQUERY("action=query&format=json&titles=File:" + Utils.UrlWebEncode(CommonsFilename) + "&prop=imageinfo&iiprop=extmetadata|url&iiurlwidth=1000"));
+            string[] thumburlmatches = Utils.TextInBetween(responsestring, "\"thumburl\":\"", "\",");
+            string[] licencematches = Utils.TextInBetween(responsestring, "\"LicenseShortName\":{\"value\":\"", "\",");
+            string[] licenceurlmatches = Utils.TextInBetween(responsestring, "\"LicenseUrl\":{\"value\":\"", "\",");
+            string[] authormatches = Utils.TextInBetween(responsestring, "\"Artist\":{\"value\":\"", "\",");
             string matchstring = @"<[\S\s]+?>";
             string matchstring2 = @"\([\S\s]+?\)";
 
@@ -246,11 +247,11 @@ namespace DailyRes
                             if (param.Item2.Contains("<!--"))
                             {
                                 string ptext = param.Item2.Split('<')[0];
-                                return int.Parse(Utils.Utils.RemoveAllAlphas(ptext));
+                                return int.Parse(Utils.RemoveAllAlphas(ptext));
                             }
                             else
                             {
-                                return int.Parse(Utils.Utils.RemoveAllAlphas(param.Item2));
+                                return int.Parse(Utils.RemoveAllAlphas(param.Item2));
                             }
                         }
                     }
