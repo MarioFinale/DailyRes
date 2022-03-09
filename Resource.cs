@@ -82,7 +82,8 @@ namespace DailyRes
         {
             int resNumber = GetNumber(resDate, ref workerBot);
             Page resPage = workerBot.Getpage("Plantilla:RDD/" + resNumber.ToString());
-            string imageName = Utils.TextInBetween(resPage.Content, "|imagen=", "|")[0].Trim();     
+            String pagetext = resPage.Content;
+            string imageName = Utils.TextInBetween(pagetext, "|imagen=", "|")[0].Trim();     
             Tuple<Image, string[]> tImage = GetCommonsFile(imageName, ref workerBot);
 
             Image image = tImage.Item1;
@@ -95,7 +96,7 @@ namespace DailyRes
             ResourceType type = GetResourceType(imageName);
             bool fbcompat = LicenseFBCompat(license);
             bool avaliable = (image == null);
-            string[] links =  Utils.TextInBetween(resPage.Content, "[[", "]]");
+            string[] links =  Utils.TextInBetween(pagetext, "[[", "]]");
             List<string> linkslist = new List<string>();
             foreach (string link in links)
             {
@@ -145,7 +146,7 @@ namespace DailyRes
         ResourceType GetResourceType(string filename)
         {            
             MatchCollection tmatches = Regex.Matches(filename, "\\.[^\\s,\\.-]{3,4}");
-            string extension = tmatches[tmatches.Count - 1].Value.Trim().ToLowerInvariant();
+            string extension = tmatches[^1].Value.Trim().ToLowerInvariant();
             switch (extension)
             {
                 case ".jpg":
@@ -217,27 +218,33 @@ namespace DailyRes
         }
 
 
-        Image PicFromUrl(string url)
+        public static Image PicFromUrl(string url, int retries, Bot workerbot)
         {
             Image img = new Bitmap(1, 1);
-            try
+
+            for (int i = 0; i <= retries; i++)
             {
-                var request = WebRequest.Create(url);
-                using (var response = request.GetResponse())
+                try
                 {
-                    using (var stream = response.GetResponseStream())
+                    HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(url);
+                    request.UserAgent = workerbot.BotApiHandler.UserAgent;
+                    using (var response = request.GetResponse())
                     {
-                        img = (Image)Image.FromStream(stream).Clone();
+                        using (var stream = response.GetResponseStream())
+                        {
+                            img = (Image)Image.FromStream(stream).Clone();
+                        }
                     }
+                    return img;
                 }
-                return img;
+                catch (Exception)
+                {
+                    img = new Bitmap(1, 1);
+                }
             }
-            catch (Exception ex)
-            {
-                Program.EventLogger.EX_Log(ex.Message, "Resource");
-                img.Dispose();
-                return null;
-            }
+            img.Dispose();
+            Program.EventLogger.EX_Log("Problemas al obtener una imagen desde Commons", "PicFromUrl");
+            throw new MWBot.net.MaxRetriesExeption();
         }
 
         int GetNumber(DateTime resdate, ref Bot workerBot)
@@ -307,7 +314,7 @@ namespace DailyRes
             }
             Image img = new Bitmap(1, 1);
             if (thumburlmatches.Count() > 0)
-                img = PicFromUrl(thumburlmatches[0]);
+                img = PicFromUrl(thumburlmatches[0], 5, workerBot);
             if (string.IsNullOrWhiteSpace(author) | (author.ToLower().Contains("unknown")))
                 author = "Desconocido";
             return new Tuple<Image, string[]>(img, new string[] { licence, licenceurl, author });

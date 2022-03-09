@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 using System.Net;
 using System.Drawing;
 using Image = System.Drawing.Image;
-using DailyRes_dotnet.Properties;
+using DailyRes.Properties;
 
 namespace DailyRes
 {
@@ -124,7 +124,7 @@ namespace DailyRes
             string tlink = tresource.PagesLinks[0];
             if (tlink.Contains("|")) tlink = tlink.Split('|')[0];
 
-            tURL =  "https://mariofinale.cl/periodibot/drespage.php?"
+            tURL = "https://periodibot.toolforge.org/drespage.php?"
                     + "wikiurl=" + Utils.UrlWebEncode("https://es.wikipedia.org/wiki/" + Utils.UppercaseFirstCharacter(tlink).Replace(" ", "_"))
                     + "&commonsfilename=" + Utils.UrlWebEncode(tresource.Name)
                     + "&imgdesc=" + Utils.UrlWebEncode(tresource.Extract)
@@ -199,33 +199,10 @@ namespace DailyRes
             }
             Image img = new Bitmap(1, 1);
             if (thumburlmatches.Count() > 0)
-                img = PicFromUrl(thumburlmatches[0]);
+                img = Resource.PicFromUrl(thumburlmatches[0], 5, Workerbot);
             if (string.IsNullOrWhiteSpace(author) | (author.ToLower().Contains("unknown")))
                 author = "Desconocido";
             return new Tuple<Image, string[]>(img, new string[] { licence, licenceurl, author });
-        }
-
-        public Image PicFromUrl(string url)
-        {
-            Image img = new Bitmap(1, 1);
-            try
-            {
-                var request = WebRequest.Create(url);
-                using (var response = request.GetResponse())
-                {
-                    using (var stream = response.GetResponseStream())
-                    {
-                        img = (Image)Image.FromStream(stream).Clone();
-                    }
-                }
-                return img;
-            }
-            catch (Exception ex)
-            {
-                Program.EventLogger.EX_Log(ex.Message, "DailyRes");
-                img.Dispose();
-                return null;
-            }
         }
 
         public int GetNumber(int year, int month, int day)

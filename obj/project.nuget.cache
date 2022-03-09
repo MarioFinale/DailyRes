@@ -1,15 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "ADdWBdNAbtyJ/bqrTT/xauGmFPdP8d3Brr/FCdQ//ztgn7UNpQ6yn950dRgfOh8c36G6YV5dGLPqIiD6lF4QiA==",
+  "dgSpecHash": "m8Tg0nbLr64qj9g80/EqydhkhjlaaJ60Rvl1z+wT4aIMoH0rP6RDf8Yo+LmSVX89HTiNO+Tca6za6BtLHzTqVg==",
   "success": true,
   "projectFilePath": "C:\\Users\\MarioFinale\\Documents\\GitHub\\DailyRes\\DailyRes.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\MarioFinale\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\MarioFinale\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\MarioFinale\\.nuget\\packages\\system.drawing.common\\4.7.0\\system.drawing.common.4.7.0.nupkg.sha512",
-    "C:\\Users\\MarioFinale\\.nuget\\packages\\microsoft.netcore.app.runtime.linux-x64\\3.1.9\\microsoft.netcore.app.runtime.linux-x64.3.1.9.nupkg.sha512",
-    "C:\\Users\\MarioFinale\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.linux-x64\\3.1.9\\microsoft.aspnetcore.app.runtime.linux-x64.3.1.9.nupkg.sha512",
-    "C:\\Users\\MarioFinale\\.nuget\\packages\\microsoft.netcore.app.host.linux-x64\\3.1.9\\microsoft.netcore.app.host.linux-x64.3.1.9.nupkg.sha512"
+    "C:\\Users\\MarioFinale\\.nuget\\packages\\microsoft.netcore.app.runtime.linux-x64\\5.0.9\\microsoft.netcore.app.runtime.linux-x64.5.0.9.nupkg.sha512",
+    "C:\\Users\\MarioFinale\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.linux-x64\\5.0.9\\microsoft.aspnetcore.app.runtime.linux-x64.5.0.9.nupkg.sha512",
+    "C:\\Users\\MarioFinale\\.nuget\\packages\\microsoft.netcore.app.host.linux-x64\\5.0.9\\microsoft.netcore.app.host.linux-x64.5.0.9.nupkg.sha512"
   ],
   "logs": []
 }

@@ -4,7 +4,6 @@ C:\Users\MarioFinale\Documents\GitHub\Comp\netcoreapp3.1\DailyRes.runtimeconfig.
 C:\Users\MarioFinale\Documents\GitHub\Comp\netcoreapp3.1\DailyRes.runtimeconfig.dev.json
 C:\Users\MarioFinale\Documents\GitHub\Comp\netcoreapp3.1\DailyRes.dll
 C:\Users\MarioFinale\Documents\GitHub\Comp\netcoreapp3.1\DailyRes.pdb
-C:\Users\MarioFinale\Documents\GitHub\DailyRes\obj\Debug\netcoreapp3.1\DailyRes.csprojAssemblyReference.cache
 C:\Users\MarioFinale\Documents\GitHub\DailyRes\obj\Debug\netcoreapp3.1\DailyRes_dotnet.Properties.Resources.resources
 C:\Users\MarioFinale\Documents\GitHub\DailyRes\obj\Debug\netcoreapp3.1\DailyRes.csproj.GenerateResource.cache
 C:\Users\MarioFinale\Documents\GitHub\DailyRes\obj\Debug\netcoreapp3.1\DailyRes.AssemblyInfoInputs.cache
@@ -14,3 +13,4 @@ C:\Users\MarioFinale\Documents\GitHub\DailyRes\obj\Debug\netcoreapp3.1\DailyRes.
 C:\Users\MarioFinale\Documents\GitHub\DailyRes\obj\Debug\netcoreapp3.1\DailyRes.dll
 C:\Users\MarioFinale\Documents\GitHub\DailyRes\obj\Debug\netcoreapp3.1\DailyRes.pdb
 C:\Users\MarioFinale\Documents\GitHub\DailyRes\obj\Debug\netcoreapp3.1\DailyRes.genruntimeconfig.cache
+C:\Users\MarioFinale\Documents\GitHub\DailyRes\obj\Debug\netcoreapp3.1\DailyRes.csproj.AssemblyReference.cache
